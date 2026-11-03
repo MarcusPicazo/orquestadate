@@ -143,28 +143,48 @@
      Mapache Mapachoso: torso grande y redondo, trazos gruesos,
      brillo suave. Cada instrumento la usa via <use> y solo agrega
      sus propios brazos e instrumento encima. -->
-<g id="orch-seat-base">
-  <path d="M 15,40 Q 43,35 49,11 Q 52,-5 41,-15 Q 47,1 43,17 Q 37,35 11,43 Z" fill="currentColor" stroke="#23262e" stroke-width="2.4"/>
-  <path d="M 45,-7 Q 50,-11 51,-19" stroke="#23262e" stroke-width="5.5" stroke-linecap="round" opacity=".5"/>
-  <path d="M 39,7 Q 45,3 48,-5" stroke="#23262e" stroke-width="5.5" stroke-linecap="round" opacity=".38"/>
-  <line x1="-16" y1="68" x2="-16" y2="98" stroke="#5a4330" stroke-width="5"/>
-  <line x1="16" y1="68" x2="16" y2="98" stroke="#5a4330" stroke-width="5"/>
-  <rect x="-20" y="62" width="40" height="7.5" rx="2" fill="#6b4f36"/>
-  <ellipse cx="-13" cy="99" rx="8.4" ry="4.8" fill="currentColor" stroke="#23262e" stroke-width="1.6"/>
-  <ellipse cx="13" cy="99" rx="8.4" ry="4.8" fill="currentColor" stroke="#23262e" stroke-width="1.6"/>
-  <ellipse cx="0" cy="31" rx="26" ry="31" fill="currentColor" stroke="#23262e" stroke-width="3"/>
-  <ellipse cx="-10" cy="16" rx="8.5" ry="10.5" fill="#fff" opacity=".16"/>
-  <path d="M 0,2 C -20,4.5 -32,19 -33,41 C -34,57 -27,67 -16,71 L -11,39 L 0,71 L 11,39 L 16,71 C 27,67 34,57 33,41 C 32,19 20,4.5 0,2 Z" fill="#111219" stroke="#05060a" stroke-width="3.6"/>
-  <path d="M 0,2 L -8.5,17 L 0,27 L 8.5,17 Z" fill="#f7f4ea"/>
-  <path d="M 0,27 L -6,67 L 6,67 Z" fill="#f7f4ea"/>
-  <path d="M 0,2 L -7.5,18 L -1.2,27 Z" fill="#05060a"/>
-  <path d="M 0,2 L 7.5,18 L 1.2,27 Z" fill="#05060a"/>
-  <g class="uniform-bowtie"><path d="M 0,13 L -6.5,8 L -6.5,17.5 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.3"/><path d="M 0,13 L 6.5,8 L 6.5,17.5 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.3"/><circle cx="0" cy="13" r="2.6" fill="#e8c788" stroke="#8a6a32" stroke-width=".9"/></g>
+<!-- Base de cuerpo = diseno EXACTO de Mapache Mapachoso (ver
+     mapache-piano / fox-piano), solo encogido con un transform
+     para encajar en el escenario. Nada de proporciones nuevas: es
+     el mismo torso, orejas, antifaz-por-contraste, frac y moño,
+     recoloreables via currentColor. Los brazos e instrumento los
+     agrega cada body-* por separado. -->
+<g id="orch-mapache-base">
+  <g transform="translate(-47,-32.45) scale(.47)">
+    <ellipse cx="82" cy="206" rx="13" ry="7.5" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".35" stroke-width="3"/>
+    <ellipse cx="118" cy="206" rx="13" ry="7.5" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".35" stroke-width="3"/>
+    <ellipse cx="100" cy="135" rx="55" ry="50" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".35" stroke-width="6"/>
+    <ellipse cx="78" cy="105" rx="22" ry="26" fill="#fff" opacity=".14"/>
+    <path d="M 100,92 C 78,94 62,112 60,140 C 59,158 65,172 76,178 L 82,138 L 100,178 L 118,138 L 124,178 C 135,172 141,158 140,140 C 138,112 122,94 100,92 Z" fill="#111219" stroke="#05060a" stroke-width="5"/>
+    <path d="M 100,92 L 88,112 L 100,126 L 112,112 Z" fill="#f7f4ea"/>
+    <path d="M 100,126 L 94,178 L 106,178 Z" fill="#f7f4ea"/>
+    <path d="M 100,92 L 90,113 L 98,126 Z" fill="#05060a"/>
+    <path d="M 100,92 L 110,113 L 102,126 Z" fill="#05060a"/>
+    <g class="uniform-bowtie">
+      <path d="M 100,104 L 84,96 L 84,113 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="2"/>
+      <path d="M 100,104 L 116,96 L 116,113 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="2"/>
+      <circle cx="100" cy="104" r="5.5" fill="#e8c788" stroke="#8a6a32" stroke-width="1.6"/>
+    </g>
+    <g>
+      <path d="M 40,50 L 20,10 L 75,30 Z" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".35" stroke-width="6"/>
+      <path d="M 38,42 L 25,18 L 65,30 Z" fill="#fbcfe8"/>
+      <path d="M 160,50 L 180,10 L 125,30 Z" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".35" stroke-width="6"/>
+      <path d="M 162,42 L 175,18 L 135,30 Z" fill="#fbcfe8"/>
+      <ellipse cx="100" cy="75" rx="70" ry="52" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".35" stroke-width="6"/>
+      <ellipse cx="100" cy="98" rx="35" ry="25" fill="#f3f1e9"/>
+      <g>
+        <circle cx="65" cy="72" r="12" fill="#15161c"/><circle cx="62" cy="68" r="4" fill="#fff"/>
+        <circle cx="135" cy="72" r="12" fill="#15161c"/><circle cx="132" cy="68" r="4" fill="#fff"/>
+      </g>
+      <ellipse cx="100" cy="90" rx="8" ry="6" fill="#2b2320"/>
+      <path d="M 88,105 Q 100,118 112,105" fill="none" stroke="#15161c" stroke-width="4" stroke-linecap="round"/>
+    </g>
+  </g>
 </g>
 
 <!-- cuerdas: violin / viola (sentado) -->
 <g id="body-strings-small">
-  <use href="#orch-seat-base"/>
+  <use href="#orch-mapache-base"/>
   <g class="play-arm-violin"><path d="M 18,22 Q 38,13 45,-5" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
   <line x1="44" y1="-6" x2="63" y2="-29" stroke="#3a2311" stroke-width="2.2" stroke-linecap="round"/>
   <line x1="45.5" y1="-5.5" x2="64.5" y2="-28" stroke="#f3ece0" stroke-width="1" stroke-linecap="round"/></g>
@@ -185,7 +205,7 @@
 
 <!-- cuerdas: chelo (sentado) -->
 <g id="body-strings-cello">
-  <use href="#orch-seat-base"/>
+  <use href="#orch-mapache-base"/>
   <line x1="52" y1="78" x2="46" y2="94" stroke="#8a6a3f" stroke-width="2.5"/>
   <path d="M 36,-18 Q 28,22 38,62 Q 52,62 58,22 Q 54,-14 36,-18 Z" fill="#a9682f" stroke="#5c3414" stroke-width="2"/>
   <path d="M 41,10 Q 38.5,22 41,34" fill="none" stroke="#2c1b0e" stroke-width="1.6"/>
@@ -204,7 +224,7 @@
 <!-- cuerdas: contrabajo (sentado en banco alto) -->
 <g id="body-strings-bass">
   <line x1="-14" y1="70" x2="-14" y2="100" stroke="#5a4330" stroke-width="4.5"/>
-  <use href="#orch-seat-base" transform="translate(0,6)"/>
+  <use href="#orch-mapache-base" transform="translate(0,6)"/>
   <path d="M 30,-34 Q 20,20 32,78 Q 50,78 58,30 Q 54,-28 30,-34 Z" fill="#8a5a2a" stroke="#4a2f14" stroke-width="2.2"/>
   <path d="M 35,16 Q 32,30 35,44" fill="none" stroke="#2c1b0e" stroke-width="1.8"/>
   <path d="M 51,16 Q 54,30 51,44" fill="none" stroke="#2c1b0e" stroke-width="1.8"/>
@@ -221,7 +241,7 @@
 
 <!-- arpa (sentado) -->
 <g id="body-harp">
-  <use href="#orch-seat-base"/>
+  <use href="#orch-mapache-base"/>
   <path d="M 24,-56 Q 56,-10 46,64 L 34,62 Q 40,-6 18,-50 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="2"/>
   <path d="M 26,-44 L 40,56 M 29,-38 L 42,50 M 32,-30 L 43,42 M 34,-20 L 44,34 M 35,-8 L 44,26" stroke="#8a6a32" stroke-width="1" opacity=".8"/>
   <g class="play-arm-harp"><path d="M 15,17 Q 27,-6 34,-33" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/></g>
@@ -231,7 +251,7 @@
 
 <!-- viento madera: flauta (sentada, instrumento horizontal) -->
 <g id="body-flute">
-  <use href="#orch-seat-base"/>
+  <use href="#orch-mapache-base"/>
   <g class="play-arm-flute-l"><path d="M -17,16 Q -33,3 -39,-13" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/></g>
   <g class="play-arm-flute-r"><path d="M 17,16 Q 30,5 49,1" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/></g>
   <path d="M -42,-15 L 46,-3 Q 50,-2.4 50,.6 Q 50,3.4 46,3.2 L -42,-9 Q -45,-9.6 -45,-12 Q -45,-14.4 -42,-15 Z" fill="#e9d9ad" stroke="#8a7244" stroke-width="1.6"/>
@@ -245,7 +265,7 @@
 
 <!-- viento madera: oboe / clarinete (sentado, vertical) -->
 <g id="body-reed">
-  <use href="#orch-seat-base"/>
+  <use href="#orch-mapache-base"/>
   <g class="play-arm-reed-l"><path d="M -17,15 Q -27,25 -20,42" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/></g>
   <g class="play-arm-reed-r"><path d="M 17,15 Q 25,25 19,42" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/></g>
   <rect x="-2.6" y="-18" width="5.2" height="9" rx="1.4" fill="#e9d9ad" stroke="#8a7244" stroke-width="1"/>
@@ -260,7 +280,7 @@
 
 <!-- viento madera: fagot (sentado, con tudel) -->
 <g id="body-bassoon">
-  <use href="#orch-seat-base"/>
+  <use href="#orch-mapache-base"/>
   <g class="play-arm-bassoon-l"><path d="M -18,17 Q -27,29 -18,46" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/></g>
   <g class="play-arm-bassoon-r"><path d="M 18,17 Q 29,31 20,48" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/></g>
   <rect x="2" y="-4" width="11" height="68" rx="4" fill="#5c4326" stroke="#2c1f10" stroke-width="1.4" transform="rotate(4 7 30)"/>
@@ -275,7 +295,7 @@
 
 <!-- metales: trompa (sentada, instrumento enrollado) -->
 <g id="body-horn">
-  <use href="#orch-seat-base"/>
+  <use href="#orch-mapache-base"/>
   <g class="play-arm-horn-l"><path d="M -18,17 Q -31,25 -33,44" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/></g>
   <g class="play-arm-horn-r"><path d="M 18,17 Q 31,25 33,44" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/></g>
   <path d="M -4,30 Q -30,26 -26,48 Q -22,66 2,56 Q 24,48 14,30 Q 4,16 -4,30 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="2.2"/>
@@ -284,7 +304,7 @@
 
 <!-- metales: trompeta (sentada, hacia adelante) -->
 <g id="body-trumpet">
-  <use href="#orch-seat-base"/>
+  <use href="#orch-mapache-base"/>
   <g class="play-arm-trumpet-l"><path d="M -17,15 Q -27,21 -25,36" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/></g>
   <g class="play-arm-trumpet-r"><path d="M 17,15 Q 29,17 38,8" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/></g>
   <rect x="-20" y="27" width="40" height="7" rx="3" fill="#e8c788" stroke="#8a6a32" stroke-width="1.6"/>
@@ -294,7 +314,7 @@
 
 <!-- metales: trombon (sentado, vara extendida) -->
 <g id="body-trombone">
-  <use href="#orch-seat-base"/>
+  <use href="#orch-mapache-base"/>
   <g class="play-arm-trombone"><path d="M -17,15 Q -27,19 -29,32" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
   <path d="M 17,15 Q 35,17 58,10" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
   <rect x="-22" y="21" width="26" height="7" rx="3" fill="#e8c788" stroke="#8a6a32" stroke-width="1.6"/>
@@ -306,14 +326,14 @@
 <g id="body-tuba">
   <path d="M -30,-6 Q -34,40 -6,56 Q 8,62 10,44 Q -4,40 -8,10 Q -10,-16 6,-22 Q -14,-22 -30,-6 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="2.2"/>
   <circle cx="-2" cy="-16" r="15" fill="#e8c788" stroke="#8a6a32" stroke-width="2"/>
-  <use href="#orch-seat-base" transform="translate(0,2)"/>
+  <use href="#orch-mapache-base" transform="translate(0,2)"/>
   <g class="play-arm-tuba-l"><path d="M -17,24 Q -28,13 -28,-3" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/></g>
   <g class="play-arm-tuba-r"><path d="M 16,26 Q 12,13 3,4" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/></g>
 </g>
 
 <!-- percusion: timbales (sentado tras el instrumento) -->
 <g id="body-timpani">
-  <use href="#orch-seat-base" transform="translate(0,-4)"/>
+  <use href="#orch-mapache-base" transform="translate(0,-4)"/>
   <g class="play-arm-timpani-l"><path d="M -17,8 Q -34,17 -40,40" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/></g>
   <g class="play-arm-timpani-r"><path d="M 17,8 Q 34,15 42,38" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/></g>
   <path d="M -46,78 Q -46,46 0,46 Q 46,46 46,78 Z" fill="#8a5a2a" stroke="#4a2f14" stroke-width="2.2"/>
@@ -325,7 +345,7 @@
 
 <!-- percusion: caja + bombo (sentado) -->
 <g id="body-snare-bd">
-  <use href="#orch-seat-base" transform="translate(0,-2)"/>
+  <use href="#orch-mapache-base" transform="translate(0,-2)"/>
   <rect x="-30" y="48" width="36" height="20" rx="3" fill="#e9e2cb" stroke="#4a2f14" stroke-width="2"/>
   <line x1="-30" y1="58" x2="6" y2="58" stroke="#8a5a2a" stroke-width="1.4"/>
   <circle cx="30" cy="44" r="22" fill="#cda45e" stroke="#8a6a32" stroke-width="2.4"/>
@@ -338,7 +358,7 @@
 
 <!-- percusion: platillos + triangulo (sentado) -->
 <g id="body-cymbals">
-  <use href="#orch-seat-base"/>
+  <use href="#orch-mapache-base"/>
   <g class="play-arm-cymbals-l"><path d="M -17,15 Q -34,9 -44,-6" fill="none" stroke="currentColor" stroke-width="8.5" stroke-linecap="round"/></g>
   <g class="play-arm-cymbals-r"><path d="M 17,15 Q 34,9 44,-6" fill="none" stroke="currentColor" stroke-width="8.5" stroke-linecap="round"/></g>
   <ellipse cx="-42" cy="-10" rx="14" ry="4.5" fill="#e8c788" stroke="#8a6a32" stroke-width="1.8" transform="rotate(-18 -42 -10)"/>
@@ -348,7 +368,7 @@
 
 <!-- percusion: xilofono / campanas (sentado, estacion de mazos) -->
 <g id="body-mallets">
-  <use href="#orch-seat-base" transform="translate(0,-2)"/>
+  <use href="#orch-mapache-base" transform="translate(0,-2)"/>
   <rect x="-40" y="50" width="80" height="12" rx="2" fill="#6b4f36"/>
   <rect x="-38" y="44" width="7" height="12" fill="#e9c27a"/><rect x="-28" y="44" width="7" height="12" fill="#e9c27a"/>
   <rect x="-18" y="44" width="7" height="12" fill="#e9c27a"/><rect x="-8" y="44" width="7" height="12" fill="#e9c27a"/>
