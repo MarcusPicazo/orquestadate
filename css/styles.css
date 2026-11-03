@@ -1,0 +1,271 @@
+:root {
+  --navy-deep: #060a16;
+  --navy: #0c1326;
+  --black: #0a0a0d;
+  --gold: #cda45e;
+  --gold-light: #e8c788;
+  --gold-pale: #f0dcae;
+  --ivory: #f6f1e4;
+  --font-serif: 'Cormorant Garamond', 'Georgia', serif;
+  --font-sans: 'Jost', 'Helvetica Neue', Arial, sans-serif;
+  --ease-soft: cubic-bezier(.22,.9,.3,1);
+  --transport-h: 132px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0; padding: 0; width: 100%; height: 100%;
+  background: var(--navy-deep); color: var(--ivory);
+  font-family: var(--font-sans); overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button { font-family: inherit; }
+
+.theater {
+  position: fixed; inset: 0; bottom: var(--transport-h);
+  display: flex; align-items: center; justify-content: center;
+  background: radial-gradient(ellipse at 50% 30%, #140f24, #05040a 75%);
+}
+
+.proscenium { position: absolute; inset: 0; z-index: 5; pointer-events: none; }
+.valance {
+  position: absolute; top: 0; left: 0; right: 0; height: 9%;
+  background: linear-gradient(180deg, #14101f, #1d1730 60%, transparent);
+  border-bottom: 3px solid var(--gold);
+  box-shadow: 0 6px 24px rgba(0,0,0,.6);
+}
+.pillar {
+  position: absolute; top: 0; bottom: 0; width: 4%;
+  background: linear-gradient(90deg, #1d1730, #120e1e);
+  border-top: 3px solid var(--gold);
+}
+.pillar--left { left: 0; border-right: 2px solid var(--gold); }
+.pillar--right { right: 0; border-left: 2px solid var(--gold); }
+
+.stage-wrap {
+  position: relative;
+  width: min(100%, calc((100vh - var(--transport-h)) * 1600 / 1000));
+  aspect-ratio: 1600 / 1000;
+  margin: 0 auto;
+}
+
+#stage-svg { width: 100%; height: 100%; display: block; }
+
+/* musicos */
+.musician {
+  opacity: .2;
+  transition: opacity .9s var(--ease-soft);
+  transition-delay: var(--d, 0s);
+}
+body.movement-2 .musician.is-awake,
+body.movement-3 .musician.is-awake {
+  opacity: 1;
+}
+
+.musician .bow-arm, .musician .mallet-arm { transform-box: fill-box; }
+
+#conductor-layer { opacity: 1; }
+.always-on { opacity: 1 !important; filter: none !important; }
+
+/* animaciones sutiles de interpretacion (en un <g> interno, nunca
+   en el <g class="musician"> que ya trae su propio transform de
+   posicion — animar "transform" ahi lo pisaria por completo) */
+@keyframes sway { 0%,100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
+.sway-inner { transform-box: fill-box; transform-origin: 50% 85%; }
+body.movement-2 .musician.is-awake .sway-inner,
+body.movement-3 .musician.is-awake .sway-inner {
+  animation: sway 2.6s ease-in-out infinite;
+  animation-delay: var(--d, 0s);
+}
+
+#conductor-layer #arm-baton-c {
+  transform-box: fill-box; transform-origin: 70% 85%;
+}
+body.is-playing #conductor-layer #arm-baton-c {
+  animation: conductBaton 1.1s ease-in-out infinite;
+}
+@keyframes conductBaton {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-14deg); }
+}
+#conductor-layer #arm-gesture-c { transform-box: fill-box; transform-origin: 80% 70%; }
+body.is-playing #conductor-layer #arm-gesture-c {
+  animation: conductGesture 1.1s ease-in-out infinite reverse;
+}
+@keyframes conductGesture {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(8deg); }
+}
+
+/* Mapache: parpadeo y cola mientras dirige */
+#conductor-layer #eyes-c { transform-box: fill-box; transform-origin: 50% 50%; animation: blinkEyes 5.2s ease-in-out infinite; }
+@keyframes blinkEyes {
+  0%, 92%, 100% { transform: scaleY(1); }
+  94%, 97% { transform: scaleY(.1); }
+}
+#conductor-layer #tail-c { transform-box: fill-box; transform-origin: 15% 85%; }
+body.is-playing #conductor-layer #tail-c { animation: conductTail 2.8s ease-in-out infinite alternate; }
+@keyframes conductTail {
+  0% { transform: rotate(-4deg); }
+  100% { transform: rotate(5deg); }
+}
+
+/* ===== animaciones de interpretacion por instrumento ===== */
+.play-arm-violin { transform-origin: 15px 21px; }
+.play-arm-cello { transform-origin: 14px 14px; }
+.play-arm-bass { transform-origin: 14px 16px; }
+.play-arm-harp { transform-origin: 13px 16px; }
+.play-arm-timpani-l { transform-origin: -14px 12px; }
+.play-arm-timpani-r { transform-origin: 14px 12px; }
+.play-arm-snare-l { transform-origin: -14px 16px; }
+.play-arm-snare-r { transform-origin: 14px 16px; }
+.play-arm-mallets-l { transform-origin: -14px 16px; }
+.play-arm-mallets-r { transform-origin: 14px 16px; }
+.play-arm-cymbals-l { transform-origin: -13px 14px; }
+.play-arm-cymbals-r { transform-origin: 13px 14px; }
+.play-arm-piano-l { transform-origin: -14px 12px; }
+.play-arm-piano-r { transform-origin: 14px 12px; }
+
+body.is-playing .musician.is-awake .play-arm-violin { animation: bowStrings .85s ease-in-out infinite; }
+body.is-playing .musician.is-awake .play-arm-cello { animation: bowStrings .95s ease-in-out infinite; }
+body.is-playing .musician.is-awake .play-arm-bass { animation: bowStrings 1.1s ease-in-out infinite; }
+@keyframes bowStrings {
+  0%, 100% { transform: rotate(-11deg); }
+  50% { transform: rotate(11deg); }
+}
+
+body.is-playing .musician.is-awake .play-arm-harp { animation: pluckHarp .5s ease-in-out infinite; }
+@keyframes pluckHarp {
+  0%, 100% { transform: rotate(-6deg); }
+  50% { transform: rotate(14deg); }
+}
+
+body.is-playing .musician.is-awake .play-arm-timpani-l,
+body.is-playing .musician.is-awake .play-arm-snare-l,
+body.is-playing .musician.is-awake .play-arm-mallets-l { animation: strikeL .55s ease-in-out infinite; }
+body.is-playing .musician.is-awake .play-arm-timpani-r,
+body.is-playing .musician.is-awake .play-arm-snare-r,
+body.is-playing .musician.is-awake .play-arm-mallets-r { animation: strikeR .55s ease-in-out infinite .22s; }
+@keyframes strikeL {
+  0%, 100% { transform: rotate(-6deg); }
+  40% { transform: rotate(16deg); }
+}
+@keyframes strikeR {
+  0%, 100% { transform: rotate(-16deg); }
+  40% { transform: rotate(6deg); }
+}
+
+body.is-playing .musician.is-awake .play-arm-cymbals-l { animation: cymbalL .9s ease-in-out infinite; }
+body.is-playing .musician.is-awake .play-arm-cymbals-r { animation: cymbalR .9s ease-in-out infinite; }
+@keyframes cymbalL { 0%,100% { transform: rotate(0deg); } 50% { transform: rotate(16deg); } }
+@keyframes cymbalR { 0%,100% { transform: rotate(0deg); } 50% { transform: rotate(-16deg); } }
+
+body.is-playing .musician.is-awake .play-arm-piano-l { animation: pianoTapL .4s ease-in-out infinite; }
+body.is-playing .musician.is-awake .play-arm-piano-r { animation: pianoTapR .4s ease-in-out infinite .2s; }
+@keyframes pianoTapL { 0%,100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
+@keyframes pianoTapR { 0%,100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
+
+/* cortina final */
+.curtain-final {
+  position: absolute; top: 0; bottom: 0; width: 52%;
+  background:
+    repeating-linear-gradient(90deg, #0e1b3d 0%, #16254c 4%, #0a1430 8%, #16254c 12%, #0e1b3d 16%);
+  box-shadow: inset 0 0 80px rgba(0,0,0,.6);
+  z-index: 8; pointer-events: none;
+  transition: transform 3.2s var(--ease-soft);
+}
+.curtain-final--left { left: 0; transform: translateX(-100%); }
+.curtain-final--right { right: 0; transform: translateX(100%); }
+body.is-closing .curtain-final--left { transform: translateX(0); }
+body.is-closing .curtain-final--right { transform: translateX(0); }
+
+/* overlay de inicio */
+.start-overlay {
+  position: absolute; inset: 0; z-index: 9;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; gap: 1.1rem; padding: 1.5rem;
+  background: radial-gradient(ellipse at 50% 40%, rgba(10,8,20,.7), rgba(5,4,10,.94));
+  transition: opacity .8s ease, visibility .8s ease;
+}
+body.is-playing .start-overlay, body.has-started .start-overlay {
+  opacity: 0; visibility: hidden; pointer-events: none;
+}
+.start-title {
+  font-family: var(--font-serif); font-style: italic; font-weight: 600;
+  font-size: clamp(1.5rem, 5vw, 2.4rem); margin: 0; color: var(--ivory);
+}
+.start-sub {
+  font-family: var(--font-sans); font-size: clamp(.8rem, 2.6vw, .95rem);
+  color: var(--gold-pale); margin: 0 0 .4rem; letter-spacing: .04em;
+}
+.btn-gold {
+  appearance: none; border: 1.5px solid var(--gold);
+  background: linear-gradient(180deg, rgba(205,164,94,.16), rgba(205,164,94,.05));
+  color: var(--gold-pale); font-size: clamp(.8rem, 2.6vw, .92rem);
+  letter-spacing: .12em; text-transform: uppercase; padding: .9em 1.8em;
+  border-radius: 2px; cursor: pointer; transition: background .3s, box-shadow .3s;
+}
+.btn-gold:hover { background: linear-gradient(180deg, rgba(205,164,94,.3), rgba(205,164,94,.12)); box-shadow: 0 0 22px rgba(205,164,94,.25); }
+
+/* ===================== transporte ===================== */
+.transport {
+  position: fixed; left: 0; right: 0; bottom: 0; height: var(--transport-h);
+  background: linear-gradient(180deg, #0a0e1c, #060914);
+  border-top: 1px solid rgba(205,164,94,.35);
+  z-index: 20; padding: .55rem clamp(.8rem, 3vw, 2rem) calc(.5rem + env(safe-area-inset-bottom, 0px));
+  display: flex; flex-direction: column; justify-content: center; gap: .4rem;
+}
+.transport-top { display: flex; align-items: center; gap: .7rem; }
+.movement-index {
+  font-family: var(--font-serif); font-style: italic; font-size: 1.3rem;
+  color: var(--gold); border: 1px solid var(--gold); border-radius: 50%;
+  width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.movement-info { display: flex; flex-direction: column; min-width: 0; }
+.movement-title {
+  font-family: var(--font-serif); font-style: italic; font-weight: 600;
+  font-size: clamp(.95rem, 3vw, 1.15rem); color: var(--ivory);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.movement-sub {
+  font-size: clamp(.68rem, 2.2vw, .76rem); color: var(--gold-pale);
+  opacity: .85; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+.transport-controls {
+  display: flex; align-items: center; justify-content: center; gap: clamp(.6rem, 3vw, 1.2rem);
+}
+.transport-btn {
+  appearance: none; background: transparent; border: none; color: var(--gold-pale);
+  font-size: 1rem; cursor: pointer; padding: .4rem .5rem; letter-spacing: .02em;
+  transition: color .2s, transform .15s;
+}
+.transport-btn:hover { color: var(--gold-light); transform: scale(1.08); }
+.transport-btn--play {
+  width: 42px; height: 42px; border-radius: 50%; border: 1.5px solid var(--gold);
+  display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+}
+
+.seek-row { display: flex; align-items: center; gap: .6rem; }
+.time-label { font-size: .7rem; color: var(--gold-pale); opacity: .8; min-width: 2.6em; text-align: center; }
+.seek-bar {
+  flex: 1; appearance: none; height: 4px; border-radius: 2px;
+  background: linear-gradient(90deg, var(--gold) var(--progress, 0%), rgba(205,164,94,.22) var(--progress, 0%));
+  outline: none; cursor: pointer;
+}
+.seek-bar::-webkit-slider-thumb {
+  appearance: none; width: 13px; height: 13px; border-radius: 50%;
+  background: var(--gold-light); border: 2px solid var(--navy-deep); cursor: pointer;
+}
+.seek-bar::-moz-range-thumb {
+  width: 13px; height: 13px; border-radius: 50%; border: 2px solid var(--navy-deep);
+  background: var(--gold-light); cursor: pointer;
+}
+
+@media (max-width: 460px) {
+  :root { --transport-h: 118px; }
+  .movement-sub { display: none; }
+}
