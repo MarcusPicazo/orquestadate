@@ -56,6 +56,21 @@
   }
 
   // ---------- construir el escenario a partir de orchestra-data.js ----------
+  // Clona el contenido del simbolo en vez de usar <use>: las
+  // animaciones CSS por id/clase (batuta, manos del piano, arcos,
+  // parpadeo...) apuntan a elementos DENTRO del simbolo, y los
+  // navegadores no animan contenido clonado via <use> cuando el
+  // <defs> original vive en el SVG separado que cargamos con fetch.
+  // Clonando de verdad, esos elementos quedan en el DOM real del
+  // escenario y las animaciones si aplican.
+  function cloneSymbol(id) {
+    const def = document.getElementById(id);
+    if (!def) return null;
+    const clone = def.cloneNode(true);
+    clone.removeAttribute('id');
+    return clone;
+  }
+
   function buildStage() {
     const ns = 'http://www.w3.org/2000/svg';
     let globalOrder = 0;
@@ -81,16 +96,13 @@
         inner.setAttribute('class', 'sway-inner');
         enter.appendChild(inner);
 
-        const useBody = document.createElementNS(ns, 'use');
-        setUseHref(useBody, '#' + section.body);
-        inner.appendChild(useBody);
+        const bodyClone = cloneSymbol(section.body);
+        if (bodyClone) inner.appendChild(bodyClone);
 
-        const headId = HEAD_FOR[section.species];
-        if (headId) {
-          const useHead = document.createElementNS(ns, 'use');
-          setUseHref(useHead, '#' + headId);
-          useHead.setAttribute('transform', 'scale(1.7)');
-          inner.appendChild(useHead);
+        if (seat.bow) {
+          const useBow = document.createElementNS(ns, 'use');
+          setUseHref(useBow, '#hair-bow-pink');
+          inner.appendChild(useBow);
         }
 
         musiciansLayer.appendChild(g);
@@ -106,9 +118,8 @@
       'transform',
       'translate(' + PIANO_POS.x + ',' + PIANO_POS.y + ') scale(' + PIANO_POS.scale + ')'
     );
-    const useFox = document.createElementNS(ns, 'use');
-    setUseHref(useFox, '#fox-piano');
-    gFox.appendChild(useFox);
+    const foxClone = cloneSymbol('fox-piano');
+    if (foxClone) gFox.appendChild(foxClone);
     pianoMusicianLayer.appendChild(gFox);
 
     // director
@@ -117,15 +128,14 @@
       'transform',
       'translate(' + CONDUCTOR_POS.x + ',' + CONDUCTOR_POS.y + ') scale(' + CONDUCTOR_POS.scale + ')'
     );
-    const useConductor = document.createElementNS(ns, 'use');
-    setUseHref(useConductor, '#conductor-mapachoso');
-    gConductor.appendChild(useConductor);
+    const conductorClone = cloneSymbol('conductor-mapachoso');
+    if (conductorClone) gConductor.appendChild(conductorClone);
     conductorLayer.appendChild(gConductor);
   }
 
   // ---------- cargar la libreria de simbolos (assets/symbols.svg) ----------
   function loadSymbols() {
-    return fetch('assets/symbols.svg?v=16')
+    return fetch('assets/symbols.svg?v=26')
       .then((r) => r.text())
       .then((text) => {
         const parser = new DOMParser();
