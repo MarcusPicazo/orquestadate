@@ -51,6 +51,19 @@ button { font-family: inherit; }
   margin: 0 auto;
 }
 
+/* en pantallas angostas/verticales el escenario panoramico se ve
+   diminuto si se respeta el aspect-ratio completo; en su lugar lo
+   dejamos llenar el alto disponible y el SVG recorta el cielo
+   vacio de arriba (preserveAspectRatio="xMidYMax slice") para que
+   la orquesta se vea grande. */
+@media (max-width: 680px) and (orientation: portrait) {
+  .stage-wrap {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: unset;
+  }
+}
+
 #stage-svg { width: 100%; height: 100%; display: block; }
 
 /* musicos */
