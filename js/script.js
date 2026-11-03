@@ -96,6 +96,15 @@
         inner.setAttribute('class', 'sway-inner');
         enter.appendChild(inner);
 
+        const shadow = document.createElementNS(ns, 'ellipse');
+        shadow.setAttribute('cx', '0');
+        shadow.setAttribute('cy', '60');
+        shadow.setAttribute('rx', '27');
+        shadow.setAttribute('ry', '6.5');
+        shadow.setAttribute('fill', '#000');
+        shadow.setAttribute('opacity', '.32');
+        inner.appendChild(shadow);
+
         const bodyClone = cloneSymbol(section.body);
         if (bodyClone) inner.appendChild(bodyClone);
 
@@ -118,6 +127,11 @@
       'transform',
       'translate(' + PIANO_POS.x + ',' + PIANO_POS.y + ') scale(' + PIANO_POS.scale + ')'
     );
+    const foxShadow = document.createElementNS(ns, 'ellipse');
+    foxShadow.setAttribute('cx', '100'); foxShadow.setAttribute('cy', '186');
+    foxShadow.setAttribute('rx', '48'); foxShadow.setAttribute('ry', '10');
+    foxShadow.setAttribute('fill', '#000'); foxShadow.setAttribute('opacity', '.3');
+    gFox.appendChild(foxShadow);
     const foxClone = cloneSymbol('fox-piano');
     if (foxClone) gFox.appendChild(foxClone);
     pianoMusicianLayer.appendChild(gFox);
@@ -128,6 +142,11 @@
       'transform',
       'translate(' + CONDUCTOR_POS.x + ',' + CONDUCTOR_POS.y + ') scale(' + CONDUCTOR_POS.scale + ')'
     );
+    const conductorShadow = document.createElementNS(ns, 'ellipse');
+    conductorShadow.setAttribute('cx', '100'); conductorShadow.setAttribute('cy', '192');
+    conductorShadow.setAttribute('rx', '52'); conductorShadow.setAttribute('ry', '11');
+    conductorShadow.setAttribute('fill', '#000'); conductorShadow.setAttribute('opacity', '.3');
+    gConductor.appendChild(conductorShadow);
     const conductorClone = cloneSymbol('conductor-mapachoso');
     if (conductorClone) gConductor.appendChild(conductorClone);
     conductorLayer.appendChild(gConductor);
@@ -135,7 +154,7 @@
 
   // ---------- cargar la libreria de simbolos (assets/symbols.svg) ----------
   function loadSymbols() {
-    return fetch('assets/symbols.svg?v=26')
+    return fetch('assets/symbols.svg?v=27')
       .then((r) => r.text())
       .then((text) => {
         const parser = new DOMParser();
