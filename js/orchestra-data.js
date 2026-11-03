@@ -31,14 +31,11 @@ const SPECIES_COLOR = {
   marten: '#8a5a32',
 };
 
-const HEAD_FOR = {
-  fox: 'head-fox', bear: 'head-bear', rabbit: 'head-rabbit', owl: 'head-owl',
-  deer: 'head-deer', cat: 'head-cat', frog: 'head-frog', squirrel: 'head-squirrel',
-  wolf: 'head-wolf', badger: 'head-badger', boar: 'head-boar', hare: 'head-hare',
-  hedgehog: 'head-hedgehog', 'barn-owl': 'head-barn-owl', woodpecker: 'head-woodpecker',
-  eagle: 'head-eagle', weasel: 'head-weasel', skunk: 'head-skunk', lynx: 'head-lynx',
-  puma: 'head-lynx', moose: 'head-moose', bat: 'head-bat', marten: 'head-marten',
-};
+// Toda la orquesta usa el mismo diseno de mapache (solo cambia el
+// color de pelaje por seccion); el zorro al piano es la unica
+// excepcion y usa su propio personaje completo (fox-piano).
+const MAPACHE_HEAD = 'head-mapache-style';
+const HEAD_FOR = new Proxy({ fox: 'head-fox' }, { get: (t, k) => (k in t ? t[k] : MAPACHE_HEAD) });
 
 // Reparte `count` asientos en `rows` filas entre xStart..xEnd, en
 // forma de graderio curvo (el centro de cada fila se adelanta
@@ -67,27 +64,27 @@ function fanRows(count, rows, { xStart, xEnd, y0, yStep, scale0, scaleStep = 0.0
 const SECTIONS = [
   {
     id: 'violin1', label: 'Violines I', body: 'body-strings-small', species: 'rabbit',
-    seats: fanRows(9, 2, { xStart: 130, xEnd: 390, y0: 850, yStep: 80, scale0: 1.28, curve: 36 }),
+    seats: fanRows(9, 3, { xStart: 140, xEnd: 380, y0: 870, yStep: 60, scale0: 1.22, scaleStep: 0.07, curve: 30 }),
     wave: 0,
   },
   {
     id: 'violin2', label: 'Violines II', body: 'body-strings-small', species: 'hare',
-    seats: fanRows(7, 2, { xStart: 400, xEnd: 600, y0: 850, yStep: 80, scale0: 1.28, curve: 30 }),
+    seats: fanRows(7, 3, { xStart: 395, xEnd: 600, y0: 860, yStep: 55, scale0: 1.05, scaleStep: 0.06, curve: 22 }),
     wave: 0,
   },
   {
     id: 'viola', label: 'Violas', body: 'body-strings-small', species: 'wolf',
-    seats: fanRows(6, 2, { xStart: 1000, xEnd: 1190, y0: 845, yStep: 80, scale0: 1.24, curve: 26 }),
+    seats: fanRows(6, 3, { xStart: 1000, xEnd: 1190, y0: 855, yStep: 55, scale0: 1.1, scaleStep: 0.06, curve: 20 }),
     wave: 0,
   },
   {
     id: 'cello', label: 'Chelos', body: 'body-strings-cello', species: 'badger',
-    seats: fanRows(6, 2, { xStart: 1200, xEnd: 1410, y0: 862, yStep: 82, scale0: 1.28, curve: 26 }),
+    seats: fanRows(6, 3, { xStart: 1210, xEnd: 1410, y0: 865, yStep: 55, scale0: 1.15, scaleStep: 0.06, curve: 20 }),
     wave: 1,
   },
   {
     id: 'bass', label: 'Contrabajos', body: 'body-strings-bass', species: 'boar',
-    seats: fanRows(4, 1, { xStart: 1420, xEnd: 1560, y0: 760, yStep: 0, scale0: 1.1 }),
+    seats: fanRows(4, 2, { xStart: 1430, xEnd: 1560, y0: 790, yStep: 55, scale0: 1.1 }),
     wave: 1,
   },
   {
@@ -97,73 +94,75 @@ const SECTIONS = [
   },
   {
     id: 'flute', label: 'Flautas', body: 'body-flute', species: 'squirrel',
-    seats: fanRows(2, 1, { xStart: 370, xEnd: 460, y0: 645, yStep: 0, scale0: 0.95 }),
+    seats: fanRows(2, 1, { xStart: 350, xEnd: 445, y0: 635, yStep: 0, scale0: 0.8 }),
     wave: 2,
   },
   {
     id: 'oboe', label: 'Oboes', body: 'body-reed', species: 'weasel',
-    seats: fanRows(2, 1, { xStart: 470, xEnd: 560, y0: 645, yStep: 0, scale0: 0.95 }),
+    seats: fanRows(2, 1, { xStart: 460, xEnd: 555, y0: 635, yStep: 0, scale0: 0.8 }),
     wave: 2,
   },
   {
     id: 'clarinet', label: 'Clarinetes', body: 'body-reed', species: 'marten',
-    seats: fanRows(2, 1, { xStart: 1040, xEnd: 1130, y0: 645, yStep: 0, scale0: 0.95 }),
+    seats: fanRows(2, 1, { xStart: 1035, xEnd: 1130, y0: 635, yStep: 0, scale0: 0.8 }),
     wave: 2,
   },
   {
     id: 'bassoon', label: 'Fagotes', body: 'body-bassoon', species: 'hedgehog',
-    seats: fanRows(2, 1, { xStart: 1140, xEnd: 1230, y0: 645, yStep: 0, scale0: 0.95 }),
+    seats: fanRows(2, 1, { xStart: 1145, xEnd: 1240, y0: 635, yStep: 0, scale0: 0.8 }),
     wave: 2,
   },
   {
     id: 'horn', label: 'Trompas', body: 'body-horn', species: 'moose',
-    seats: fanRows(4, 1, { xStart: 330, xEnd: 560, y0: 505, yStep: 0, scale0: 0.84 }),
+    seats: fanRows(4, 1, { xStart: 320, xEnd: 565, y0: 495, yStep: 0, scale0: 0.75 }),
     wave: 3,
   },
   {
     id: 'trumpet', label: 'Trompetas', body: 'body-trumpet', species: 'eagle',
-    seats: fanRows(2, 1, { xStart: 570, xEnd: 660, y0: 505, yStep: 0, scale0: 0.84 }),
+    seats: fanRows(2, 1, { xStart: 585, xEnd: 665, y0: 495, yStep: 0, scale0: 0.78 }),
     wave: 3,
   },
   {
     id: 'trombone', label: 'Trombones', body: 'body-trombone', species: 'lynx',
-    seats: fanRows(2, 1, { xStart: 950, xEnd: 1040, y0: 505, yStep: 0, scale0: 0.84 }),
+    seats: fanRows(2, 1, { xStart: 945, xEnd: 1035, y0: 495, yStep: 0, scale0: 0.78 }),
     wave: 3,
   },
   {
     id: 'bass-trombone', label: 'Trombon bajo', body: 'body-trombone', species: 'puma',
-    seats: fanRows(1, 1, { xStart: 1060, xEnd: 1060, y0: 505, yStep: 0, scale0: 0.84 }),
+    seats: fanRows(1, 1, { xStart: 1060, xEnd: 1060, y0: 495, yStep: 0, scale0: 0.78 }),
     wave: 3,
   },
   {
     id: 'tuba', label: 'Tuba', body: 'body-tuba', species: 'moose',
-    seats: fanRows(1, 1, { xStart: 1130, xEnd: 1130, y0: 505, yStep: 0, scale0: 0.88 }),
+    seats: fanRows(1, 1, { xStart: 1140, xEnd: 1140, y0: 495, yStep: 0, scale0: 0.82 }),
     wave: 3,
   },
   {
     id: 'timpani', label: 'Timbales', body: 'body-timpani', species: 'owl',
-    seats: fanRows(1, 1, { xStart: 460, xEnd: 460, y0: 370, yStep: 0, scale0: 0.78 }),
+    seats: fanRows(1, 1, { xStart: 460, xEnd: 460, y0: 375, yStep: 0, scale0: 0.78 }),
     wave: 4,
   },
   {
     id: 'snare-bd', label: 'Caja y bombo', body: 'body-snare-bd', species: 'woodpecker',
-    seats: fanRows(1, 1, { xStart: 620, xEnd: 620, y0: 370, yStep: 0, scale0: 0.78 }),
+    seats: fanRows(1, 1, { xStart: 640, xEnd: 640, y0: 375, yStep: 0, scale0: 0.78 }),
     wave: 4,
   },
   {
     id: 'cymbals', label: 'Platillos y triangulo', body: 'body-cymbals', species: 'skunk',
-    seats: fanRows(1, 1, { xStart: 980, xEnd: 980, y0: 370, yStep: 0, scale0: 0.78 }),
+    seats: fanRows(1, 1, { xStart: 960, xEnd: 960, y0: 375, yStep: 0, scale0: 0.78 }),
     wave: 4,
   },
   {
     id: 'mallets', label: 'Xilofono y campanas', body: 'body-mallets', species: 'bat',
-    seats: fanRows(1, 1, { xStart: 1140, xEnd: 1140, y0: 370, yStep: 0, scale0: 0.78 }),
+    seats: fanRows(1, 1, { xStart: 1140, xEnd: 1140, y0: 375, yStep: 0, scale0: 0.78 }),
     wave: 4,
   },
 ];
 
 // Zorro al piano de cola (centro, siempre presente) y Mapache en
-// su tarima justo detras, dirigiendo desde el inicio.
-const PIANO_POS = { x: 700, y: 845, scale: 1.3 };
+// su tarima justo detras, dirigiendo desde el inicio. El pasillo
+// central (x 600-1000) queda libre de atriles para que nadie se
+// encime con ellos.
+const PIANO_POS = { x: 726, y: 734, scale: 0.8 };
 const PIANO_SPECIES = 'fox';
 const CONDUCTOR_POS = { x: 800, y: 600, scale: 1.18 };

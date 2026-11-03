@@ -107,7 +107,7 @@
       'translate(' + PIANO_POS.x + ',' + PIANO_POS.y + ') scale(' + PIANO_POS.scale + ')'
     );
     const useFox = document.createElementNS(ns, 'use');
-    setUseHref(useFox, '#fox-piano-profile');
+    setUseHref(useFox, '#fox-piano');
     gFox.appendChild(useFox);
     pianoMusicianLayer.appendChild(gFox);
 
@@ -218,10 +218,12 @@
   });
 
   btnRew.addEventListener('click', () => {
+    if (!isFinite(audio.duration)) return;
     audio.currentTime = Math.max(0, audio.currentTime - 10);
   });
   btnFwd.addEventListener('click', () => {
-    audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 10);
+    if (!isFinite(audio.duration)) return;
+    audio.currentTime = Math.min(audio.duration, audio.currentTime + 10);
   });
 
   seekBar.addEventListener('input', () => {

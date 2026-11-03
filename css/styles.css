@@ -205,6 +205,19 @@ body.is-playing .musician.is-awake .play-arm-piano-r { animation: pianoTapR .4s 
 
 .play-arm-fox { transform-box: fill-box; transform-origin: 90% 20%; }
 body.is-playing #piano-fox .play-arm-fox { animation: pianoTapL .4s ease-in-out infinite; }
+.play-arm-fox-piano { transform-box: fill-box; transform-origin: 20% 10%; }
+body.is-playing #piano-fox .play-arm-fox-piano { animation: pianoTapR .4s ease-in-out infinite .2s; }
+
+/* director: cola que se mece y parpadeo */
+.conductor-tail { transform-box: fill-box; transform-origin: 18% 82%; animation: conductorTailSway 2.6s ease-in-out infinite; }
+@keyframes conductorTailSway { 0%,100% { transform: rotate(-5deg); } 50% { transform: rotate(6deg); } }
+
+.conductor-eyes { transform-box: fill-box; transform-origin: 50% 50%; animation: conductorBlink 4.4s ease-in-out infinite; }
+@keyframes conductorBlink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(.08); }
+  97% { transform: scaleY(1); }
+}
 
 /* viento madera: suave vaiven de aliento */
 body.is-playing .musician.is-awake .play-arm-flute-l,
