@@ -171,7 +171,7 @@ const SECTIONS = [
 // El zorro se sienta en la banca, a la izquierda del piano (no
 // encima), a la altura del teclado; los brazos (ver fox-piano)
 // se extienden hacia la derecha para tocar.
-const PIANO_POS = { x: 390, y: 718, scale: 0.72 };
+const PIANO_POS = { x: 400, y: 720, scale: 0.72 };
 const PIANO_SPECIES = 'fox';
 // El simbolo conductor-mapachoso tiene su centro visual en el
 // punto local (100,135), no en (0,0); se resta 100*scale en x para
