@@ -89,7 +89,7 @@
         if (headId) {
           const useHead = document.createElementNS(ns, 'use');
           setUseHref(useHead, '#' + headId);
-          useHead.setAttribute('transform', 'scale(1.22)');
+          useHead.setAttribute('transform', 'scale(1.7)');
           inner.appendChild(useHead);
         }
 
@@ -125,7 +125,7 @@
 
   // ---------- cargar la libreria de simbolos (assets/symbols.svg) ----------
   function loadSymbols() {
-    return fetch('assets/symbols.svg?v=9')
+    return fetch('assets/symbols.svg?v=10')
       .then((r) => r.text())
       .then((text) => {
         const parser = new DOMParser();
