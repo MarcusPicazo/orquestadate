@@ -103,20 +103,28 @@
      hombros justo debajo. fill="currentColor" en el pelaje.
      ========================================================= -->
 
+<!-- base compartida de "asiento + frac" (se repite dentro de cada
+     cuerpo, ver comentario BASE en cada uno). Silla + pies +
+     torso rechoncho + frac negro + camisa + solapas + moño. -->
+
 <!-- cuerdas: violin / viola (sentado) -->
 <g id="body-strings-small">
-  <line x1="-13" y1="66" x2="-13" y2="92" stroke="#5a4330" stroke-width="4"/>
-  <line x1="13" y1="66" x2="13" y2="92" stroke="#5a4330" stroke-width="4"/>
-  <rect x="-17" y="60" width="34" height="7" rx="2" fill="#6b4f36"/>
-  <ellipse cx="-11" cy="93" rx="7" ry="4" fill="currentColor"/>
-  <ellipse cx="11" cy="93" rx="7" ry="4" fill="currentColor"/>
-  <ellipse cx="0" cy="30" rx="19" ry="24" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".25" stroke-width="2"/>
-  <ellipse cx="0" cy="34" rx="10" ry="14" fill="#f6f1e4" opacity=".92"/>
-  <g class="uniform-bowtie"><path d="M 0,2 L -6,-2 L -6,6 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1"/><path d="M 0,2 L 6,-2 L 6,6 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1"/><circle cx="0" cy="2" r="2.1" fill="#e8c788" stroke="#8a6a32" stroke-width=".7"/></g>
-  <g class="play-arm-violin"><path d="M 15,21 Q 33,13 39,-3" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
-  <line x1="39" y1="-3" x2="56" y2="-25" stroke="#d8c48a" stroke-width="2"/></g>
-  <path d="M -15,19 Q -23,2 -13,-9" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
-  <g transform="translate(-5,-13) rotate(-26)">
+  <line x1="-14" y1="64" x2="-14" y2="93" stroke="#5a4330" stroke-width="4.5"/>
+  <line x1="14" y1="64" x2="14" y2="93" stroke="#5a4330" stroke-width="4.5"/>
+  <rect x="-18" y="58" width="36" height="7" rx="2" fill="#6b4f36"/>
+  <ellipse cx="-12" cy="94" rx="7.5" ry="4.3" fill="currentColor"/>
+  <ellipse cx="12" cy="94" rx="7.5" ry="4.3" fill="currentColor"/>
+  <ellipse cx="0" cy="30" rx="21" ry="26" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".25" stroke-width="2"/>
+  <path d="M 0,2 C -17,4 -27,17 -28,36 C -29,49 -23,58 -14,61 L -10,33 L 0,61 L 10,33 L 14,61 C 23,58 29,49 28,36 C 27,17 17,4 0,2 Z" fill="#111219" stroke="#05060a" stroke-width="3.2"/>
+  <path d="M 0,2 L -7,15 L 0,23 L 7,15 Z" fill="#f7f4ea"/>
+  <path d="M 0,23 L -5,58 L 5,58 Z" fill="#f7f4ea"/>
+  <path d="M 0,2 L -6,16 L -1,23 Z" fill="#05060a"/>
+  <path d="M 0,2 L 6,16 L 1,23 Z" fill="#05060a"/>
+  <g class="uniform-bowtie"><path d="M 0,11 L -5,7 L -5,15 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.1"/><path d="M 0,11 L 5,7 L 5,15 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.1"/><circle cx="0" cy="11" r="2.1" fill="#e8c788" stroke="#8a6a32" stroke-width=".7"/></g>
+  <g class="play-arm-violin"><path d="M 16,20 Q 34,12 40,-4" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/>
+  <line x1="40" y1="-4" x2="57" y2="-26" stroke="#d8c48a" stroke-width="2"/></g>
+  <path d="M -16,18 Q -24,1 -14,-10" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/>
+  <g transform="translate(-5,-14) rotate(-26)">
     <ellipse cx="0" cy="0" rx="7" ry="12.5" fill="#a9682f" stroke="#5c3414" stroke-width="1.4"/>
     <rect x="-1.3" y="-25" width="2.6" height="15" fill="#3a2311"/>
   </g>
@@ -124,229 +132,317 @@
 
 <!-- cuerdas: chelo (sentado) -->
 <g id="body-strings-cello">
-  <line x1="-13" y1="64" x2="-13" y2="90" stroke="#5a4330" stroke-width="4"/>
-  <line x1="13" y1="64" x2="13" y2="90" stroke="#5a4330" stroke-width="4"/>
-  <rect x="-17" y="58" width="34" height="7" rx="2" fill="#6b4f36"/>
-  <ellipse cx="-11" cy="91" rx="7" ry="4" fill="currentColor"/>
-  <ellipse cx="11" cy="91" rx="7" ry="4" fill="currentColor"/>
-  <ellipse cx="0" cy="28" rx="19" ry="23" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".25" stroke-width="2"/>
-  <ellipse cx="0" cy="32" rx="10" ry="13" fill="#f6f1e4" opacity=".92"/>
-  <g class="uniform-bowtie"><path d="M 0,2 L -6,-2 L -6,6 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1"/><path d="M 0,2 L 6,-2 L 6,6 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1"/><circle cx="0" cy="2" r="2.1" fill="#e8c788" stroke="#8a6a32" stroke-width=".7"/></g>
+  <line x1="-14" y1="62" x2="-14" y2="90" stroke="#5a4330" stroke-width="4.5"/>
+  <line x1="14" y1="62" x2="14" y2="90" stroke="#5a4330" stroke-width="4.5"/>
+  <rect x="-18" y="56" width="36" height="7" rx="2" fill="#6b4f36"/>
+  <ellipse cx="-12" cy="91" rx="7.5" ry="4.3" fill="currentColor"/>
+  <ellipse cx="12" cy="91" rx="7.5" ry="4.3" fill="currentColor"/>
+  <ellipse cx="0" cy="28" rx="21" ry="25" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".25" stroke-width="2"/>
+  <path d="M 0,1 C -17,3 -27,15 -28,33 C -29,45 -23,53 -14,56 L -10,31 L 0,56 L 10,31 L 14,56 C 23,53 29,45 28,33 C 27,15 17,3 0,1 Z" fill="#111219" stroke="#05060a" stroke-width="3.2"/>
+  <path d="M 0,1 L -7,13 L 0,21 L 7,13 Z" fill="#f7f4ea"/>
+  <path d="M 0,21 L -5,53 L 5,53 Z" fill="#f7f4ea"/>
+  <path d="M 0,1 L -6,14 L -1,21 Z" fill="#05060a"/>
+  <path d="M 0,1 L 6,14 L 1,21 Z" fill="#05060a"/>
+  <g class="uniform-bowtie"><path d="M 0,9 L -5,5 L -5,13 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.1"/><path d="M 0,9 L 5,5 L 5,13 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.1"/><circle cx="0" cy="9" r="2.1" fill="#e8c788" stroke="#8a6a32" stroke-width=".7"/></g>
   <line x1="52" y1="78" x2="46" y2="94" stroke="#8a6a3f" stroke-width="2.5"/>
   <path d="M 36,-18 Q 28,22 38,62 Q 52,62 58,22 Q 54,-14 36,-18 Z" fill="#a9682f" stroke="#5c3414" stroke-width="2"/>
   <rect x="45" y="-40" width="3" height="24" fill="#3a2311"/>
-  <g class="play-arm-cello"><path d="M 14,14 Q 30,2 38,-8" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/></g>
-  <path d="M -15,16 Q -4,30 16,36" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+  <g class="play-arm-cello"><path d="M 15,12 Q 31,0 39,-10" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/></g>
+  <path d="M -16,14 Q -5,28 16,34" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/>
 </g>
 
-<!-- cuerdas: contrabajo (de pie) -->
+<!-- cuerdas: contrabajo (sentado en banco alto) -->
 <g id="body-strings-bass">
-  <ellipse cx="-10" cy="112" rx="8" ry="4.5" fill="currentColor"/>
-  <ellipse cx="10" cy="112" rx="8" ry="4.5" fill="currentColor"/>
-  <ellipse cx="0" cy="34" rx="18" ry="24" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".25" stroke-width="2"/>
-  <rect x="-9" y="52" width="18" height="60" rx="8" fill="currentColor"/>
-  <ellipse cx="0" cy="38" rx="9" ry="14" fill="#f6f1e4" opacity=".92"/>
-  <g class="uniform-bowtie"><path d="M 0,6 L -6,2 L -6,10 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1"/><path d="M 0,6 L 6,2 L 6,10 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1"/><circle cx="0" cy="6" r="2.1" fill="#e8c788" stroke="#8a6a32" stroke-width=".7"/></g>
+  <line x1="-14" y1="70" x2="-14" y2="100" stroke="#5a4330" stroke-width="4.5"/>
+  <line x1="14" y1="70" x2="14" y2="100" stroke="#5a4330" stroke-width="4.5"/>
+  <rect x="-18" y="64" width="36" height="7" rx="2" fill="#6b4f36"/>
+  <ellipse cx="-12" cy="101" rx="7.5" ry="4.3" fill="currentColor"/>
+  <ellipse cx="12" cy="101" rx="7.5" ry="4.3" fill="currentColor"/>
+  <ellipse cx="0" cy="33" rx="21" ry="27" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".25" stroke-width="2"/>
+  <path d="M 0,4 C -17,6 -27,19 -28,39 C -29,53 -23,62 -14,65 L -10,36 L 0,65 L 10,36 L 14,65 C 23,62 29,53 28,39 C 27,19 17,6 0,4 Z" fill="#111219" stroke="#05060a" stroke-width="3.2"/>
+  <path d="M 0,4 L -7,17 L 0,26 L 7,17 Z" fill="#f7f4ea"/>
+  <path d="M 0,26 L -5,63 L 5,63 Z" fill="#f7f4ea"/>
+  <path d="M 0,4 L -6,18 L -1,26 Z" fill="#05060a"/>
+  <path d="M 0,4 L 6,18 L 1,26 Z" fill="#05060a"/>
+  <g class="uniform-bowtie"><path d="M 0,13 L -5,9 L -5,17 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.1"/><path d="M 0,13 L 5,9 L 5,17 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.1"/><circle cx="0" cy="13" r="2.1" fill="#e8c788" stroke="#8a6a32" stroke-width=".7"/></g>
   <path d="M 30,-34 Q 20,20 32,78 Q 50,78 58,30 Q 54,-28 30,-34 Z" fill="#8a5a2a" stroke="#4a2f14" stroke-width="2.2"/>
   <rect x="42" y="-62" width="3.4" height="30" fill="#3a2311"/>
-  <g class="play-arm-bass"><path d="M 14,16 Q 26,-6 34,-24" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/></g>
-  <path d="M -14,20 Q -2,40 20,46" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/>
+  <g class="play-arm-bass"><path d="M 15,18 Q 27,-4 35,-22" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/></g>
+  <path d="M -15,22 Q -3,42 20,48" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/>
 </g>
 
 <!-- arpa (sentado) -->
 <g id="body-harp">
-  <line x1="-13" y1="66" x2="-13" y2="92" stroke="#5a4330" stroke-width="4"/>
-  <line x1="13" y1="66" x2="13" y2="92" stroke="#5a4330" stroke-width="4"/>
-  <rect x="-17" y="60" width="34" height="7" rx="2" fill="#6b4f36"/>
-  <ellipse cx="-11" cy="93" rx="7" ry="4" fill="currentColor"/>
-  <ellipse cx="11" cy="93" rx="7" ry="4" fill="currentColor"/>
-  <ellipse cx="0" cy="30" rx="19" ry="24" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".25" stroke-width="2"/>
-  <ellipse cx="0" cy="34" rx="10" ry="14" fill="#f6f1e4" opacity=".92"/>
-  <g class="uniform-bowtie"><path d="M 0,2 L -6,-2 L -6,6 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1"/><path d="M 0,2 L 6,-2 L 6,6 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1"/><circle cx="0" cy="2" r="2.1" fill="#e8c788" stroke="#8a6a32" stroke-width=".7"/></g>
+  <line x1="-14" y1="64" x2="-14" y2="93" stroke="#5a4330" stroke-width="4.5"/>
+  <line x1="14" y1="64" x2="14" y2="93" stroke="#5a4330" stroke-width="4.5"/>
+  <rect x="-18" y="58" width="36" height="7" rx="2" fill="#6b4f36"/>
+  <ellipse cx="-12" cy="94" rx="7.5" ry="4.3" fill="currentColor"/>
+  <ellipse cx="12" cy="94" rx="7.5" ry="4.3" fill="currentColor"/>
+  <ellipse cx="0" cy="30" rx="21" ry="26" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".25" stroke-width="2"/>
+  <path d="M 0,2 C -17,4 -27,17 -28,36 C -29,49 -23,58 -14,61 L -10,33 L 0,61 L 10,33 L 14,61 C 23,58 29,49 28,36 C 27,17 17,4 0,2 Z" fill="#111219" stroke="#05060a" stroke-width="3.2"/>
+  <path d="M 0,2 L -7,15 L 0,23 L 7,15 Z" fill="#f7f4ea"/>
+  <path d="M 0,23 L -5,58 L 5,58 Z" fill="#f7f4ea"/>
+  <path d="M 0,2 L -6,16 L -1,23 Z" fill="#05060a"/>
+  <path d="M 0,2 L 6,16 L 1,23 Z" fill="#05060a"/>
+  <g class="uniform-bowtie"><path d="M 0,11 L -5,7 L -5,15 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.1"/><path d="M 0,11 L 5,7 L 5,15 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.1"/><circle cx="0" cy="11" r="2.1" fill="#e8c788" stroke="#8a6a32" stroke-width=".7"/></g>
   <path d="M 24,-56 Q 56,-10 46,64 L 34,62 Q 40,-6 18,-50 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="2"/>
   <path d="M 26,-44 L 40,56 M 29,-38 L 42,50 M 32,-30 L 43,42 M 34,-20 L 44,34 M 35,-8 L 44,26" stroke="#8a6a32" stroke-width="1" opacity=".8"/>
-  <g class="play-arm-harp"><path d="M 13,16 Q 24,-4 30,-30" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/></g>
-  <path d="M -11,20 Q 4,24 22,8" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+  <g class="play-arm-harp"><path d="M 14,15 Q 25,-5 31,-31" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/></g>
+  <path d="M -12,19 Q 3,23 21,7" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/>
 </g>
 
-<!-- viento madera: flauta (de pie, instrumento horizontal) -->
+<!-- viento madera: flauta (sentada, instrumento horizontal) -->
 <g id="body-flute">
-  <ellipse cx="-9" cy="100" rx="7.5" ry="4" fill="currentColor"/>
-  <ellipse cx="9" cy="100" rx="7.5" ry="4" fill="currentColor"/>
-  <rect x="-10" y="56" width="20" height="46" rx="8" fill="currentColor"/>
-  <ellipse cx="0" cy="30" rx="17" ry="22" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".25" stroke-width="2"/>
-  <ellipse cx="0" cy="34" rx="9" ry="12" fill="#f6f1e4" opacity=".92"/>
-  <g class="uniform-bowtie"><path d="M 0,2 L -6,-2 L -6,6 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1"/><path d="M 0,2 L 6,-2 L 6,6 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1"/><circle cx="0" cy="2" r="2.1" fill="#e8c788" stroke="#8a6a32" stroke-width=".7"/></g>
-  <path d="M -13,16 Q -28,4 -34,-10" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
-  <path d="M 13,16 Q 26,6 44,2" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
-  <line x1="-38" y1="-12" x2="46" y2="0" stroke="#d9c79a" stroke-width="3.5" stroke-linecap="round"/>
-  <circle cx="-20" cy="-8" r="1.3" fill="#8a7753"/><circle cx="-6" cy="-6" r="1.3" fill="#8a7753"/><circle cx="8" cy="-4" r="1.3" fill="#8a7753"/>
+  <line x1="-14" y1="64" x2="-14" y2="93" stroke="#5a4330" stroke-width="4.5"/>
+  <line x1="14" y1="64" x2="14" y2="93" stroke="#5a4330" stroke-width="4.5"/>
+  <rect x="-18" y="58" width="36" height="7" rx="2" fill="#6b4f36"/>
+  <ellipse cx="-12" cy="94" rx="7.5" ry="4.3" fill="currentColor"/>
+  <ellipse cx="12" cy="94" rx="7.5" ry="4.3" fill="currentColor"/>
+  <ellipse cx="0" cy="30" rx="21" ry="26" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".25" stroke-width="2"/>
+  <path d="M 0,2 C -17,4 -27,17 -28,36 C -29,49 -23,58 -14,61 L -10,33 L 0,61 L 10,33 L 14,61 C 23,58 29,49 28,36 C 27,17 17,4 0,2 Z" fill="#111219" stroke="#05060a" stroke-width="3.2"/>
+  <path d="M 0,2 L -7,15 L 0,23 L 7,15 Z" fill="#f7f4ea"/>
+  <path d="M 0,23 L -5,58 L 5,58 Z" fill="#f7f4ea"/>
+  <path d="M 0,2 L -6,16 L -1,23 Z" fill="#05060a"/>
+  <path d="M 0,2 L 6,16 L 1,23 Z" fill="#05060a"/>
+  <g class="uniform-bowtie"><path d="M 0,11 L -5,7 L -5,15 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.1"/><path d="M 0,11 L 5,7 L 5,15 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.1"/><circle cx="0" cy="11" r="2.1" fill="#e8c788" stroke="#8a6a32" stroke-width=".7"/></g>
+  <g class="play-arm-flute-l"><path d="M -15,14 Q -30,2 -36,-12" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/></g>
+  <g class="play-arm-flute-r"><path d="M 15,14 Q 28,4 46,0" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/></g>
+  <line x1="-40" y1="-14" x2="48" y2="-2" stroke="#d9c79a" stroke-width="3.5" stroke-linecap="round"/>
+  <circle cx="-22" cy="-10" r="1.3" fill="#8a7753"/><circle cx="-8" cy="-8" r="1.3" fill="#8a7753"/><circle cx="6" cy="-6" r="1.3" fill="#8a7753"/>
 </g>
 
-<!-- viento madera: oboe / clarinete (de pie, vertical) -->
+<!-- viento madera: oboe / clarinete (sentado, vertical) -->
 <g id="body-reed">
-  <ellipse cx="-9" cy="100" rx="7.5" ry="4" fill="currentColor"/>
-  <ellipse cx="9" cy="100" rx="7.5" ry="4" fill="currentColor"/>
-  <rect x="-10" y="56" width="20" height="46" rx="8" fill="currentColor"/>
-  <ellipse cx="0" cy="30" rx="17" ry="22" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".25" stroke-width="2"/>
-  <ellipse cx="0" cy="34" rx="9" ry="12" fill="#f6f1e4" opacity=".92"/>
-  <g class="uniform-bowtie"><path d="M 0,2 L -6,-2 L -6,6 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1"/><path d="M 0,2 L 6,-2 L 6,6 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1"/><circle cx="0" cy="2" r="2.1" fill="#e8c788" stroke="#8a6a32" stroke-width=".7"/></g>
-  <path d="M -13,14 Q -22,24 -16,40" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
-  <path d="M 13,14 Q 20,24 15,40" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+  <line x1="-14" y1="64" x2="-14" y2="93" stroke="#5a4330" stroke-width="4.5"/>
+  <line x1="14" y1="64" x2="14" y2="93" stroke="#5a4330" stroke-width="4.5"/>
+  <rect x="-18" y="58" width="36" height="7" rx="2" fill="#6b4f36"/>
+  <ellipse cx="-12" cy="94" rx="7.5" ry="4.3" fill="currentColor"/>
+  <ellipse cx="12" cy="94" rx="7.5" ry="4.3" fill="currentColor"/>
+  <ellipse cx="0" cy="30" rx="21" ry="26" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".25" stroke-width="2"/>
+  <path d="M 0,2 C -17,4 -27,17 -28,36 C -29,49 -23,58 -14,61 L -10,33 L 0,61 L 10,33 L 14,61 C 23,58 29,49 28,36 C 27,17 17,4 0,2 Z" fill="#111219" stroke="#05060a" stroke-width="3.2"/>
+  <path d="M 0,2 L -7,15 L 0,23 L 7,15 Z" fill="#f7f4ea"/>
+  <path d="M 0,23 L -5,58 L 5,58 Z" fill="#f7f4ea"/>
+  <path d="M 0,2 L -6,16 L -1,23 Z" fill="#05060a"/>
+  <path d="M 0,2 L 6,16 L 1,23 Z" fill="#05060a"/>
+  <g class="uniform-bowtie"><path d="M 0,11 L -5,7 L -5,15 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.1"/><path d="M 0,11 L 5,7 L 5,15 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.1"/><circle cx="0" cy="11" r="2.1" fill="#e8c788" stroke="#8a6a32" stroke-width=".7"/></g>
+  <g class="play-arm-reed-l"><path d="M -15,13 Q -24,23 -18,39" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/></g>
+  <g class="play-arm-reed-r"><path d="M 15,13 Q 22,23 17,39" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/></g>
   <rect x="-4" y="-6" width="8" height="50" rx="2.5" fill="#3a2d1f" stroke="#1c140c" stroke-width="1.2"/>
   <circle cx="0" cy="4" r="1.1" fill="#cda45e"/><circle cx="0" cy="12" r="1.1" fill="#cda45e"/><circle cx="0" cy="20" r="1.1" fill="#cda45e"/><circle cx="0" cy="28" r="1.1" fill="#cda45e"/>
 </g>
 
-<!-- viento madera: fagot (de pie, con tudel) -->
+<!-- viento madera: fagot (sentado, con tudel) -->
 <g id="body-bassoon">
-  <ellipse cx="-9" cy="104" rx="7.5" ry="4" fill="currentColor"/>
-  <ellipse cx="9" cy="104" rx="7.5" ry="4" fill="currentColor"/>
-  <rect x="-10" y="58" width="20" height="48" rx="8" fill="currentColor"/>
-  <ellipse cx="0" cy="30" rx="18" ry="23" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".25" stroke-width="2"/>
-  <ellipse cx="0" cy="34" rx="9.5" ry="13" fill="#f6f1e4" opacity=".92"/>
-  <g class="uniform-bowtie"><path d="M 0,2 L -6,-2 L -6,6 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1"/><path d="M 0,2 L 6,-2 L 6,6 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1"/><circle cx="0" cy="2" r="2.1" fill="#e8c788" stroke="#8a6a32" stroke-width=".7"/></g>
-  <path d="M -14,16 Q -22,28 -14,44" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/>
-  <path d="M 14,16 Q 24,30 16,46" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/>
+  <line x1="-14" y1="66" x2="-14" y2="95" stroke="#5a4330" stroke-width="4.5"/>
+  <line x1="14" y1="66" x2="14" y2="95" stroke="#5a4330" stroke-width="4.5"/>
+  <rect x="-18" y="60" width="36" height="7" rx="2" fill="#6b4f36"/>
+  <ellipse cx="-12" cy="96" rx="7.5" ry="4.3" fill="currentColor"/>
+  <ellipse cx="12" cy="96" rx="7.5" ry="4.3" fill="currentColor"/>
+  <ellipse cx="0" cy="30" rx="22" ry="27" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".25" stroke-width="2"/>
+  <path d="M 0,2 C -18,4 -28,17 -29,37 C -30,50 -24,59 -15,62 L -11,33 L 0,62 L 11,33 L 15,62 C 24,59 30,50 29,37 C 28,17 18,4 0,2 Z" fill="#111219" stroke="#05060a" stroke-width="3.2"/>
+  <path d="M 0,2 L -7,15 L 0,23 L 7,15 Z" fill="#f7f4ea"/>
+  <path d="M 0,23 L -5,59 L 5,59 Z" fill="#f7f4ea"/>
+  <path d="M 0,2 L -6,16 L -1,23 Z" fill="#05060a"/>
+  <path d="M 0,2 L 6,16 L 1,23 Z" fill="#05060a"/>
+  <g class="uniform-bowtie"><path d="M 0,11 L -5,7 L -5,15 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.1"/><path d="M 0,11 L 5,7 L 5,15 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.1"/><circle cx="0" cy="11" r="2.1" fill="#e8c788" stroke="#8a6a32" stroke-width=".7"/></g>
+  <g class="play-arm-bassoon-l"><path d="M -16,15 Q -24,27 -16,43" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/></g>
+  <g class="play-arm-bassoon-r"><path d="M 16,15 Q 26,29 18,45" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/></g>
   <rect x="2" y="-4" width="11" height="68" rx="4" fill="#5c4326" stroke="#2c1f10" stroke-width="1.4" transform="rotate(4 7 30)"/>
   <path d="M 13,-2 Q 24,-10 20,-24" fill="none" stroke="#5c4326" stroke-width="5" stroke-linecap="round"/>
   <path d="M 20,-24 L 25,-32" stroke="#d9c79a" stroke-width="2" stroke-linecap="round"/>
 </g>
 
-<!-- metales: trompa (de pie, instrumento enrollado) -->
+<!-- metales: trompa (sentada, instrumento enrollado) -->
 <g id="body-horn">
-  <ellipse cx="-9" cy="100" rx="7.5" ry="4" fill="currentColor"/>
-  <ellipse cx="9" cy="100" rx="7.5" ry="4" fill="currentColor"/>
-  <rect x="-10" y="56" width="20" height="46" rx="8" fill="currentColor"/>
-  <ellipse cx="0" cy="30" rx="18" ry="23" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".25" stroke-width="2"/>
-  <ellipse cx="0" cy="34" rx="9.5" ry="13" fill="#f6f1e4" opacity=".92"/>
-  <g class="uniform-bowtie"><path d="M 0,2 L -6,-2 L -6,6 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1"/><path d="M 0,2 L 6,-2 L 6,6 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1"/><circle cx="0" cy="2" r="2.1" fill="#e8c788" stroke="#8a6a32" stroke-width=".7"/></g>
-  <path d="M -14,16 Q -26,24 -28,42" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/>
-  <path d="M 14,16 Q 26,24 28,42" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/>
+  <line x1="-14" y1="64" x2="-14" y2="93" stroke="#5a4330" stroke-width="4.5"/>
+  <line x1="14" y1="64" x2="14" y2="93" stroke="#5a4330" stroke-width="4.5"/>
+  <rect x="-18" y="58" width="36" height="7" rx="2" fill="#6b4f36"/>
+  <ellipse cx="-12" cy="94" rx="7.5" ry="4.3" fill="currentColor"/>
+  <ellipse cx="12" cy="94" rx="7.5" ry="4.3" fill="currentColor"/>
+  <ellipse cx="0" cy="30" rx="21" ry="26" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".25" stroke-width="2"/>
+  <path d="M 0,2 C -17,4 -27,17 -28,36 C -29,49 -23,58 -14,61 L -10,33 L 0,61 L 10,33 L 14,61 C 23,58 29,49 28,36 C 27,17 17,4 0,2 Z" fill="#111219" stroke="#05060a" stroke-width="3.2"/>
+  <path d="M 0,2 L -7,15 L 0,23 L 7,15 Z" fill="#f7f4ea"/>
+  <path d="M 0,23 L -5,58 L 5,58 Z" fill="#f7f4ea"/>
+  <path d="M 0,2 L -6,16 L -1,23 Z" fill="#05060a"/>
+  <path d="M 0,2 L 6,16 L 1,23 Z" fill="#05060a"/>
+  <g class="uniform-bowtie"><path d="M 0,11 L -5,7 L -5,15 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.1"/><path d="M 0,11 L 5,7 L 5,15 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.1"/><circle cx="0" cy="11" r="2.1" fill="#e8c788" stroke="#8a6a32" stroke-width=".7"/></g>
+  <g class="play-arm-horn-l"><path d="M -16,15 Q -28,23 -30,41" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/></g>
+  <g class="play-arm-horn-r"><path d="M 16,15 Q 28,23 30,41" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/></g>
   <path d="M -4,30 Q -30,26 -26,48 Q -22,66 2,56 Q 24,48 14,30 Q 4,16 -4,30 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="2.2"/>
   <circle cx="2" cy="36" r="10" fill="#e8c788" stroke="#8a6a32" stroke-width="1.6"/>
 </g>
 
-<!-- metales: trompeta (de pie, hacia adelante) -->
+<!-- metales: trompeta (sentada, hacia adelante) -->
 <g id="body-trumpet">
-  <ellipse cx="-9" cy="100" rx="7.5" ry="4" fill="currentColor"/>
-  <ellipse cx="9" cy="100" rx="7.5" ry="4" fill="currentColor"/>
-  <rect x="-10" y="56" width="20" height="46" rx="8" fill="currentColor"/>
-  <ellipse cx="0" cy="30" rx="17" ry="22" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".25" stroke-width="2"/>
-  <ellipse cx="0" cy="34" rx="9" ry="12" fill="#f6f1e4" opacity=".92"/>
-  <g class="uniform-bowtie"><path d="M 0,2 L -6,-2 L -6,6 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1"/><path d="M 0,2 L 6,-2 L 6,6 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1"/><circle cx="0" cy="2" r="2.1" fill="#e8c788" stroke="#8a6a32" stroke-width=".7"/></g>
-  <path d="M -13,14 Q -22,20 -20,34" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
-  <path d="M 13,14 Q 24,16 32,8" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+  <line x1="-14" y1="64" x2="-14" y2="93" stroke="#5a4330" stroke-width="4.5"/>
+  <line x1="14" y1="64" x2="14" y2="93" stroke="#5a4330" stroke-width="4.5"/>
+  <rect x="-18" y="58" width="36" height="7" rx="2" fill="#6b4f36"/>
+  <ellipse cx="-12" cy="94" rx="7.5" ry="4.3" fill="currentColor"/>
+  <ellipse cx="12" cy="94" rx="7.5" ry="4.3" fill="currentColor"/>
+  <ellipse cx="0" cy="30" rx="21" ry="26" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".25" stroke-width="2"/>
+  <path d="M 0,2 C -17,4 -27,17 -28,36 C -29,49 -23,58 -14,61 L -10,33 L 0,61 L 10,33 L 14,61 C 23,58 29,49 28,36 C 27,17 17,4 0,2 Z" fill="#111219" stroke="#05060a" stroke-width="3.2"/>
+  <path d="M 0,2 L -7,15 L 0,23 L 7,15 Z" fill="#f7f4ea"/>
+  <path d="M 0,23 L -5,58 L 5,58 Z" fill="#f7f4ea"/>
+  <path d="M 0,2 L -6,16 L -1,23 Z" fill="#05060a"/>
+  <path d="M 0,2 L 6,16 L 1,23 Z" fill="#05060a"/>
+  <g class="uniform-bowtie"><path d="M 0,11 L -5,7 L -5,15 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.1"/><path d="M 0,11 L 5,7 L 5,15 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.1"/><circle cx="0" cy="11" r="2.1" fill="#e8c788" stroke="#8a6a32" stroke-width=".7"/></g>
+  <g class="play-arm-trumpet-l"><path d="M -15,13 Q -24,19 -22,33" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/></g>
+  <g class="play-arm-trumpet-r"><path d="M 15,13 Q 26,15 34,7" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/></g>
   <rect x="-20" y="27" width="40" height="7" rx="3" fill="#e8c788" stroke="#8a6a32" stroke-width="1.6"/>
   <path d="M 20,24 L 38,16 L 38,44 L 20,37 Z" fill="#e8c788" stroke="#8a6a32" stroke-width="1.6"/>
   <circle cx="-8" cy="24" r="2" fill="#cda45e"/><circle cx="-2" cy="24" r="2" fill="#cda45e"/><circle cx="4" cy="24" r="2" fill="#cda45e"/>
 </g>
 
-<!-- metales: trombon (de pie, vara extendida) -->
+<!-- metales: trombon (sentado, vara extendida) -->
 <g id="body-trombone">
-  <ellipse cx="-9" cy="100" rx="7.5" ry="4" fill="currentColor"/>
-  <ellipse cx="9" cy="100" rx="7.5" ry="4" fill="currentColor"/>
-  <rect x="-10" y="56" width="20" height="46" rx="8" fill="currentColor"/>
-  <ellipse cx="0" cy="30" rx="17" ry="22" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".25" stroke-width="2"/>
-  <ellipse cx="0" cy="34" rx="9" ry="12" fill="#f6f1e4" opacity=".92"/>
-  <g class="uniform-bowtie"><path d="M 0,2 L -6,-2 L -6,6 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1"/><path d="M 0,2 L 6,-2 L 6,6 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1"/><circle cx="0" cy="2" r="2.1" fill="#e8c788" stroke="#8a6a32" stroke-width=".7"/></g>
-  <path d="M -13,14 Q -22,18 -24,30" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
-  <path d="M 13,14 Q 30,16 52,10" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
-  <rect x="-22" y="22" width="26" height="7" rx="3" fill="#e8c788" stroke="#8a6a32" stroke-width="1.6"/>
-  <rect x="2" y="23" width="40" height="5" fill="#cda45e" stroke="#8a6a32" stroke-width="1.2"/>
-  <path d="M 42,18 L 58,12 L 58,36 L 42,30 Z" fill="#e8c788" stroke="#8a6a32" stroke-width="1.6"/>
+  <line x1="-14" y1="64" x2="-14" y2="93" stroke="#5a4330" stroke-width="4.5"/>
+  <line x1="14" y1="64" x2="14" y2="93" stroke="#5a4330" stroke-width="4.5"/>
+  <rect x="-18" y="58" width="36" height="7" rx="2" fill="#6b4f36"/>
+  <ellipse cx="-12" cy="94" rx="7.5" ry="4.3" fill="currentColor"/>
+  <ellipse cx="12" cy="94" rx="7.5" ry="4.3" fill="currentColor"/>
+  <ellipse cx="0" cy="30" rx="21" ry="26" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".25" stroke-width="2"/>
+  <path d="M 0,2 C -17,4 -27,17 -28,36 C -29,49 -23,58 -14,61 L -10,33 L 0,61 L 10,33 L 14,61 C 23,58 29,49 28,36 C 27,17 17,4 0,2 Z" fill="#111219" stroke="#05060a" stroke-width="3.2"/>
+  <path d="M 0,2 L -7,15 L 0,23 L 7,15 Z" fill="#f7f4ea"/>
+  <path d="M 0,23 L -5,58 L 5,58 Z" fill="#f7f4ea"/>
+  <path d="M 0,2 L -6,16 L -1,23 Z" fill="#05060a"/>
+  <path d="M 0,2 L 6,16 L 1,23 Z" fill="#05060a"/>
+  <g class="uniform-bowtie"><path d="M 0,11 L -5,7 L -5,15 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.1"/><path d="M 0,11 L 5,7 L 5,15 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.1"/><circle cx="0" cy="11" r="2.1" fill="#e8c788" stroke="#8a6a32" stroke-width=".7"/></g>
+  <g class="play-arm-trombone"><path d="M -15,13 Q -24,17 -26,29" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/>
+  <path d="M 15,13 Q 32,15 54,9" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/>
+  <rect x="-22" y="21" width="26" height="7" rx="3" fill="#e8c788" stroke="#8a6a32" stroke-width="1.6"/>
+  <rect x="2" y="22" width="40" height="5" fill="#cda45e" stroke="#8a6a32" stroke-width="1.2"/>
+  <path d="M 42,17 L 58,11 L 58,35 L 42,29 Z" fill="#e8c788" stroke="#8a6a32" stroke-width="1.6"/></g>
 </g>
 
-<!-- metales: tuba (de pie, gran instrumento envolvente) -->
+<!-- metales: tuba (sentada, gran instrumento en el regazo) -->
 <g id="body-tuba">
-  <ellipse cx="-10" cy="106" rx="8" ry="4.5" fill="currentColor"/>
-  <ellipse cx="10" cy="106" rx="8" ry="4.5" fill="currentColor"/>
-  <ellipse cx="0" cy="32" rx="18" ry="24" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".25" stroke-width="2"/>
+  <line x1="-15" y1="68" x2="-15" y2="97" stroke="#5a4330" stroke-width="4.5"/>
+  <line x1="15" y1="68" x2="15" y2="97" stroke="#5a4330" stroke-width="4.5"/>
+  <rect x="-19" y="62" width="38" height="7" rx="2" fill="#6b4f36"/>
+  <ellipse cx="-13" cy="98" rx="7.5" ry="4.3" fill="currentColor"/>
+  <ellipse cx="13" cy="98" rx="7.5" ry="4.3" fill="currentColor"/>
+  <ellipse cx="0" cy="32" rx="22" ry="27" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".25" stroke-width="2"/>
   <path d="M -30,-6 Q -34,40 -6,56 Q 8,62 10,44 Q -4,40 -8,10 Q -10,-16 6,-22 Q -14,-22 -30,-6 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="2.2"/>
   <circle cx="-2" cy="-16" r="15" fill="#e8c788" stroke="#8a6a32" stroke-width="2"/>
-  <ellipse cx="0" cy="36" rx="9" ry="13" fill="#f6f1e4" opacity=".92"/>
-  <g class="uniform-bowtie"><path d="M 0,4 L -6,0 L -6,8 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1"/><path d="M 0,4 L 6,0 L 6,8 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1"/><circle cx="0" cy="4" r="2.1" fill="#e8c788" stroke="#8a6a32" stroke-width=".7"/></g>
-  <path d="M -14,20 Q -24,10 -24,-4" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/>
-  <path d="M 13,22 Q 10,10 2,2" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/>
+  <path d="M 0,4 C -18,6 -28,19 -29,39 C -30,52 -24,61 -15,64 L -11,35 L 0,64 L 11,35 L 15,64 C 24,61 30,52 29,39 C 28,19 18,6 0,4 Z" fill="#111219" stroke="#05060a" stroke-width="3.2"/>
+  <path d="M 0,4 L -7,17 L 0,25 L 7,17 Z" fill="#f7f4ea"/>
+  <path d="M 0,25 L -5,61 L 5,61 Z" fill="#f7f4ea"/>
+  <path d="M 0,4 L -6,18 L -1,25 Z" fill="#05060a"/>
+  <path d="M 0,4 L 6,18 L 1,25 Z" fill="#05060a"/>
+  <g class="uniform-bowtie"><path d="M 0,13 L -5,9 L -5,17 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.1"/><path d="M 0,13 L 5,9 L 5,17 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.1"/><circle cx="0" cy="13" r="2.1" fill="#e8c788" stroke="#8a6a32" stroke-width=".7"/></g>
+  <g class="play-arm-tuba-l"><path d="M -15,22 Q -25,12 -25,-2" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/></g>
+  <g class="play-arm-tuba-r"><path d="M 14,24 Q 11,12 3,4" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/></g>
 </g>
 
-<!-- percusion: timbales (de pie tras el instrumento) -->
+<!-- percusion: timbales (sentado tras el instrumento) -->
 <g id="body-timpani">
-  <ellipse cx="-11" cy="100" rx="8" ry="4" fill="currentColor"/>
-  <ellipse cx="11" cy="100" rx="8" ry="4" fill="currentColor"/>
-  <ellipse cx="0" cy="26" rx="18" ry="23" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".25" stroke-width="2"/>
-  <ellipse cx="0" cy="30" rx="9.5" ry="13" fill="#f6f1e4" opacity=".92"/>
-  <g class="uniform-bowtie"><path d="M 0,0 L -6,-4 L -6,4 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1"/><path d="M 0,0 L 6,-4 L 6,4 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1"/><circle cx="0" cy="0" r="2.1" fill="#e8c788" stroke="#8a6a32" stroke-width=".7"/></g>
-  <g class="play-arm-timpani-l"><path d="M -14,12 Q -30,20 -36,42" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/></g>
-  <g class="play-arm-timpani-r"><path d="M 14,12 Q 30,18 38,40" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/></g>
+  <line x1="-14" y1="60" x2="-14" y2="89" stroke="#5a4330" stroke-width="4.5"/>
+  <line x1="14" y1="60" x2="14" y2="89" stroke="#5a4330" stroke-width="4.5"/>
+  <rect x="-18" y="54" width="36" height="7" rx="2" fill="#6b4f36"/>
+  <ellipse cx="-12" cy="90" rx="7.5" ry="4.3" fill="currentColor"/>
+  <ellipse cx="12" cy="90" rx="7.5" ry="4.3" fill="currentColor"/>
+  <ellipse cx="0" cy="26" rx="21" ry="25" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".25" stroke-width="2"/>
+  <path d="M 0,-1 C -17,1 -27,13 -28,31 C -29,43 -23,51 -14,54 L -10,29 L 0,54 L 10,29 L 14,54 C 23,51 29,43 28,31 C 27,13 17,1 0,-1 Z" fill="#111219" stroke="#05060a" stroke-width="3.2"/>
+  <path d="M 0,-1 L -7,11 L 0,19 L 7,11 Z" fill="#f7f4ea"/>
+  <path d="M 0,19 L -5,51 L 5,51 Z" fill="#f7f4ea"/>
+  <path d="M 0,-1 L -6,12 L -1,19 Z" fill="#05060a"/>
+  <path d="M 0,-1 L 6,12 L 1,19 Z" fill="#05060a"/>
+  <g class="uniform-bowtie"><path d="M 0,7 L -5,3 L -5,11 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.1"/><path d="M 0,7 L 5,3 L 5,11 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.1"/><circle cx="0" cy="7" r="2.1" fill="#e8c788" stroke="#8a6a32" stroke-width=".7"/></g>
+  <g class="play-arm-timpani-l"><path d="M -15,11 Q -31,19 -37,41" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/></g>
+  <g class="play-arm-timpani-r"><path d="M 15,11 Q 31,17 39,39" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/></g>
   <path d="M -46,78 Q -46,46 0,46 Q 46,46 46,78 Z" fill="#8a5a2a" stroke="#4a2f14" stroke-width="2.2"/>
   <ellipse cx="0" cy="46" rx="46" ry="13" fill="#e9e2cb" stroke="#4a2f14" stroke-width="2"/>
-  <line x1="-36" y1="42" x2="-44" y2="30" stroke="#d9c79a" stroke-width="2.4" stroke-linecap="round"/>
-  <line x1="38" y1="40" x2="46" y2="28" stroke="#d9c79a" stroke-width="2.4" stroke-linecap="round"/>
-  <circle cx="-44" cy="28" r="2.6" fill="#8a5a2a"/><circle cx="46" cy="26" r="2.6" fill="#8a5a2a"/>
+  <line x1="-37" y1="41" x2="-45" y2="29" stroke="#d9c79a" stroke-width="2.4" stroke-linecap="round"/>
+  <line x1="39" y1="39" x2="47" y2="27" stroke="#d9c79a" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="-45" cy="27" r="2.6" fill="#8a5a2a"/><circle cx="47" cy="25" r="2.6" fill="#8a5a2a"/>
 </g>
 
-<!-- percusion: caja + bombo (estacion) -->
+<!-- percusion: caja + bombo (sentado) -->
 <g id="body-snare-bd">
-  <ellipse cx="-11" cy="100" rx="8" ry="4" fill="currentColor"/>
-  <ellipse cx="11" cy="100" rx="8" ry="4" fill="currentColor"/>
-  <ellipse cx="0" cy="28" rx="18" ry="23" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".25" stroke-width="2"/>
-  <ellipse cx="0" cy="32" rx="9.5" ry="13" fill="#f6f1e4" opacity=".92"/>
-  <g class="uniform-bowtie"><path d="M 0,1 L -6,-3 L -6,5 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1"/><path d="M 0,1 L 6,-3 L 6,5 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1"/><circle cx="0" cy="1" r="2.1" fill="#e8c788" stroke="#8a6a32" stroke-width=".7"/></g>
+  <line x1="-14" y1="62" x2="-14" y2="91" stroke="#5a4330" stroke-width="4.5"/>
+  <line x1="14" y1="62" x2="14" y2="91" stroke="#5a4330" stroke-width="4.5"/>
+  <rect x="-18" y="56" width="36" height="7" rx="2" fill="#6b4f36"/>
+  <ellipse cx="-12" cy="92" rx="7.5" ry="4.3" fill="currentColor"/>
+  <ellipse cx="12" cy="92" rx="7.5" ry="4.3" fill="currentColor"/>
+  <ellipse cx="0" cy="28" rx="21" ry="25" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".25" stroke-width="2"/>
+  <path d="M 0,1 C -17,3 -27,15 -28,33 C -29,45 -23,53 -14,56 L -10,31 L 0,56 L 10,31 L 14,56 C 23,53 29,45 28,33 C 27,15 17,3 0,1 Z" fill="#111219" stroke="#05060a" stroke-width="3.2"/>
+  <path d="M 0,1 L -7,13 L 0,21 L 7,13 Z" fill="#f7f4ea"/>
+  <path d="M 0,21 L -5,53 L 5,53 Z" fill="#f7f4ea"/>
+  <path d="M 0,1 L -6,14 L -1,21 Z" fill="#05060a"/>
+  <path d="M 0,1 L 6,14 L 1,21 Z" fill="#05060a"/>
+  <g class="uniform-bowtie"><path d="M 0,9 L -5,5 L -5,13 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.1"/><path d="M 0,9 L 5,5 L 5,13 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.1"/><circle cx="0" cy="9" r="2.1" fill="#e8c788" stroke="#8a6a32" stroke-width=".7"/></g>
   <rect x="-30" y="48" width="36" height="20" rx="3" fill="#e9e2cb" stroke="#4a2f14" stroke-width="2"/>
   <line x1="-30" y1="58" x2="6" y2="58" stroke="#8a5a2a" stroke-width="1.4"/>
   <circle cx="30" cy="44" r="22" fill="#cda45e" stroke="#8a6a32" stroke-width="2.4"/>
   <circle cx="30" cy="44" r="15" fill="#e9e2cb" stroke="#8a6a32" stroke-width="1.6"/>
-  <g class="play-arm-snare-l"><path d="M -14,16 Q -16,30 -8,44" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
-  <line x1="-8" y1="44" x2="-2" y2="34" stroke="#d9c79a" stroke-width="2.2" stroke-linecap="round"/></g>
-  <g class="play-arm-snare-r"><path d="M 14,16 Q 22,26 28,30" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
-  <line x1="28" y1="30" x2="34" y2="20" stroke="#d9c79a" stroke-width="2.2" stroke-linecap="round"/></g>
+  <g class="play-arm-snare-l"><path d="M -15,15 Q -17,29 -9,43" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+  <line x1="-9" y1="43" x2="-3" y2="33" stroke="#d9c79a" stroke-width="2.2" stroke-linecap="round"/></g>
+  <g class="play-arm-snare-r"><path d="M 15,15 Q 23,25 29,29" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+  <line x1="29" y1="29" x2="35" y2="19" stroke="#d9c79a" stroke-width="2.2" stroke-linecap="round"/></g>
 </g>
 
-<!-- percusion: platillos + triangulo (estacion) -->
+<!-- percusion: platillos + triangulo (sentado) -->
 <g id="body-cymbals">
-  <ellipse cx="-9" cy="100" rx="7.5" ry="4" fill="currentColor"/>
-  <ellipse cx="9" cy="100" rx="7.5" ry="4" fill="currentColor"/>
-  <rect x="-10" y="56" width="20" height="46" rx="8" fill="currentColor"/>
-  <ellipse cx="0" cy="28" rx="17" ry="22" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".25" stroke-width="2"/>
-  <ellipse cx="0" cy="32" rx="9" ry="12" fill="#f6f1e4" opacity=".92"/>
-  <g class="uniform-bowtie"><path d="M 0,1 L -6,-3 L -6,5 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1"/><path d="M 0,1 L 6,-3 L 6,5 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1"/><circle cx="0" cy="1" r="2.1" fill="#e8c788" stroke="#8a6a32" stroke-width=".7"/></g>
-  <g class="play-arm-cymbals-l"><path d="M -13,14 Q -30,8 -40,-6" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/></g>
-  <g class="play-arm-cymbals-r"><path d="M 13,14 Q 30,8 40,-6" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/></g>
+  <line x1="-14" y1="64" x2="-14" y2="93" stroke="#5a4330" stroke-width="4.5"/>
+  <line x1="14" y1="64" x2="14" y2="93" stroke="#5a4330" stroke-width="4.5"/>
+  <rect x="-18" y="58" width="36" height="7" rx="2" fill="#6b4f36"/>
+  <ellipse cx="-12" cy="94" rx="7.5" ry="4.3" fill="currentColor"/>
+  <ellipse cx="12" cy="94" rx="7.5" ry="4.3" fill="currentColor"/>
+  <ellipse cx="0" cy="30" rx="21" ry="26" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".25" stroke-width="2"/>
+  <path d="M 0,2 C -17,4 -27,17 -28,36 C -29,49 -23,58 -14,61 L -10,33 L 0,61 L 10,33 L 14,61 C 23,58 29,49 28,36 C 27,17 17,4 0,2 Z" fill="#111219" stroke="#05060a" stroke-width="3.2"/>
+  <path d="M 0,2 L -7,15 L 0,23 L 7,15 Z" fill="#f7f4ea"/>
+  <path d="M 0,23 L -5,58 L 5,58 Z" fill="#f7f4ea"/>
+  <path d="M 0,2 L -6,16 L -1,23 Z" fill="#05060a"/>
+  <path d="M 0,2 L 6,16 L 1,23 Z" fill="#05060a"/>
+  <g class="uniform-bowtie"><path d="M 0,11 L -5,7 L -5,15 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.1"/><path d="M 0,11 L 5,7 L 5,15 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.1"/><circle cx="0" cy="11" r="2.1" fill="#e8c788" stroke="#8a6a32" stroke-width=".7"/></g>
+  <g class="play-arm-cymbals-l"><path d="M -15,13 Q -32,7 -42,-7" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/></g>
+  <g class="play-arm-cymbals-r"><path d="M 15,13 Q 32,7 42,-7" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/></g>
   <ellipse cx="-42" cy="-10" rx="14" ry="4.5" fill="#e8c788" stroke="#8a6a32" stroke-width="1.8" transform="rotate(-18 -42 -10)"/>
   <ellipse cx="42" cy="-10" rx="14" ry="4.5" fill="#e8c788" stroke="#8a6a32" stroke-width="1.8" transform="rotate(18 42 -10)"/>
   <path d="M 28,56 L 36,48 L 44,56 L 36,64 Z" fill="none" stroke="#cda45e" stroke-width="2.4"/>
 </g>
 
-<!-- percusion: xilofono / campanas (estacion de mazos) -->
+<!-- percusion: xilofono / campanas (sentado, estacion de mazos) -->
 <g id="body-mallets">
-  <ellipse cx="-11" cy="100" rx="8" ry="4" fill="currentColor"/>
-  <ellipse cx="11" cy="100" rx="8" ry="4" fill="currentColor"/>
-  <ellipse cx="0" cy="28" rx="18" ry="23" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".25" stroke-width="2"/>
-  <ellipse cx="0" cy="32" rx="9.5" ry="13" fill="#f6f1e4" opacity=".92"/>
-  <g class="uniform-bowtie"><path d="M 0,1 L -6,-3 L -6,5 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1"/><path d="M 0,1 L 6,-3 L 6,5 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1"/><circle cx="0" cy="1" r="2.1" fill="#e8c788" stroke="#8a6a32" stroke-width=".7"/></g>
+  <line x1="-14" y1="62" x2="-14" y2="91" stroke="#5a4330" stroke-width="4.5"/>
+  <line x1="14" y1="62" x2="14" y2="91" stroke="#5a4330" stroke-width="4.5"/>
+  <rect x="-18" y="56" width="36" height="7" rx="2" fill="#6b4f36"/>
+  <ellipse cx="-12" cy="92" rx="7.5" ry="4.3" fill="currentColor"/>
+  <ellipse cx="12" cy="92" rx="7.5" ry="4.3" fill="currentColor"/>
+  <ellipse cx="0" cy="28" rx="21" ry="25" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".25" stroke-width="2"/>
+  <path d="M 0,1 C -17,3 -27,15 -28,33 C -29,45 -23,53 -14,56 L -10,31 L 0,56 L 10,31 L 14,56 C 23,53 29,45 28,33 C 27,15 17,3 0,1 Z" fill="#111219" stroke="#05060a" stroke-width="3.2"/>
+  <path d="M 0,1 L -7,13 L 0,21 L 7,13 Z" fill="#f7f4ea"/>
+  <path d="M 0,21 L -5,53 L 5,53 Z" fill="#f7f4ea"/>
+  <path d="M 0,1 L -6,14 L -1,21 Z" fill="#05060a"/>
+  <path d="M 0,1 L 6,14 L 1,21 Z" fill="#05060a"/>
+  <g class="uniform-bowtie"><path d="M 0,9 L -5,5 L -5,13 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.1"/><path d="M 0,9 L 5,5 L 5,13 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.1"/><circle cx="0" cy="9" r="2.1" fill="#e8c788" stroke="#8a6a32" stroke-width=".7"/></g>
   <rect x="-40" y="50" width="80" height="12" rx="2" fill="#6b4f36"/>
   <rect x="-38" y="44" width="7" height="12" fill="#e9c27a"/><rect x="-28" y="44" width="7" height="12" fill="#e9c27a"/>
   <rect x="-18" y="44" width="7" height="12" fill="#e9c27a"/><rect x="-8" y="44" width="7" height="12" fill="#e9c27a"/>
   <rect x="2" y="44" width="7" height="12" fill="#e9c27a"/><rect x="12" y="44" width="7" height="12" fill="#e9c27a"/>
   <rect x="22" y="44" width="7" height="12" fill="#e9c27a"/><rect x="32" y="44" width="7" height="12" fill="#e9c27a"/>
-  <g class="play-arm-mallets-l"><path d="M -14,16 Q -16,30 -6,42" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
-  <line x1="-6" y1="42" x2="-2" y2="30" stroke="#d9c79a" stroke-width="2.2" stroke-linecap="round"/></g>
-  <g class="play-arm-mallets-r"><path d="M 14,16 Q 16,30 6,42" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
-  <line x1="6" y1="42" x2="2" y2="30" stroke="#d9c79a" stroke-width="2.2" stroke-linecap="round"/></g>
+  <g class="play-arm-mallets-l"><path d="M -15,15 Q -17,29 -7,41" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+  <line x1="-7" y1="41" x2="-3" y2="29" stroke="#d9c79a" stroke-width="2.2" stroke-linecap="round"/></g>
+  <g class="play-arm-mallets-r"><path d="M 15,15 Q 17,29 7,41" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+  <line x1="7" y1="41" x2="3" y2="29" stroke="#d9c79a" stroke-width="2.2" stroke-linecap="round"/></g>
 </g>
 
-<!-- piano (sentado, para el pianista de los movimientos 2-3) -->
+<!-- piano (sentado, para el pianista) -->
 <g id="body-piano">
-  <ellipse cx="-11" cy="100" rx="8" ry="4" fill="currentColor"/>
-  <ellipse cx="11" cy="100" rx="8" ry="4" fill="currentColor"/>
-  <ellipse cx="0" cy="26" rx="18" ry="23" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".25" stroke-width="2"/>
-  <ellipse cx="0" cy="30" rx="9.5" ry="13" fill="#f6f1e4" opacity=".92"/>
-  <g class="uniform-bowtie"><path d="M 0,0 L -6,-4 L -6,4 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1"/><path d="M 0,0 L 6,-4 L 6,4 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1"/><circle cx="0" cy="0" r="2.1" fill="#e8c788" stroke="#8a6a32" stroke-width=".7"/></g>
-  <path d="M -50,70 L 50,70 L 56,96 L -56,96 Z" fill="#111219" stroke="#05060a" stroke-width="2.4"/>
-  <rect x="-44" y="56" width="88" height="16" rx="2" fill="#f3f1e9" stroke="#05060a" stroke-width="1.6"/>
-  <rect x="-44" y="56" width="88" height="16" fill="url(#piano-keys)"/>
-  <g class="play-arm-piano-l"><path d="M -14,12 Q -24,28 -16,48" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/></g>
-  <g class="play-arm-piano-r"><path d="M 14,12 Q 22,26 12,48" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/></g>
+  <line x1="-14" y1="62" x2="-14" y2="91" stroke="#5a4330" stroke-width="4.5"/>
+  <line x1="14" y1="62" x2="14" y2="91" stroke="#5a4330" stroke-width="4.5"/>
+  <rect x="-18" y="56" width="36" height="7" rx="2" fill="#6b4f36"/>
+  <ellipse cx="-12" cy="92" rx="7.5" ry="4.3" fill="currentColor"/>
+  <ellipse cx="12" cy="92" rx="7.5" ry="4.3" fill="currentColor"/>
+  <ellipse cx="0" cy="26" rx="21" ry="25" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".25" stroke-width="2"/>
+  <path d="M 0,-1 C -17,1 -27,13 -28,31 C -29,43 -23,51 -14,54 L -10,29 L 0,54 L 10,29 L 14,54 C 23,51 29,43 28,31 C 27,13 17,1 0,-1 Z" fill="#111219" stroke="#05060a" stroke-width="3.2"/>
+  <path d="M 0,-1 L -7,11 L 0,19 L 7,11 Z" fill="#f7f4ea"/>
+  <path d="M 0,19 L -5,51 L 5,51 Z" fill="#f7f4ea"/>
+  <path d="M 0,-1 L -6,12 L -1,19 Z" fill="#05060a"/>
+  <path d="M 0,-1 L 6,12 L 1,19 Z" fill="#05060a"/>
+  <g class="uniform-bowtie"><path d="M 0,7 L -5,3 L -5,11 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.1"/><path d="M 0,7 L 5,3 L 5,11 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="1.1"/><circle cx="0" cy="7" r="2.1" fill="#e8c788" stroke="#8a6a32" stroke-width=".7"/></g>
+  <g class="play-arm-piano-l"><path d="M -15,11 Q -25,27 -17,47" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/></g>
+  <g class="play-arm-piano-r"><path d="M 15,11 Q 23,25 13,47" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/></g>
 </g>
 <pattern id="piano-keys" width="8" height="16" patternUnits="userSpaceOnUse">
   <rect width="8" height="16" fill="#f3f1e9"/>

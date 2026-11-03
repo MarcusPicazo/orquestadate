@@ -1,6 +1,8 @@
 // Datos de la orquesta: secciones, especies, instrumentos y su
 // ubicacion en el escenario (viewBox 0 0 1600 1000, y crece hacia
-// el publico = abajo).
+// el publico = abajo). El piano de cola y el podio de Mapache
+// ocupan el centro; las secciones dejan un pasillo libre ahi para
+// que nadie se encime.
 
 const SPECIES_COLOR = {
   mapache: '#8891a0',
@@ -27,8 +29,6 @@ const SPECIES_COLOR = {
   moose: '#6e5742',
   bat: '#4a4250',
   marten: '#8a5a32',
-  'red-deer': '#a9713f',
-  roe: '#c08a52',
 };
 
 const HEAD_FOR = {
@@ -38,13 +38,11 @@ const HEAD_FOR = {
   hedgehog: 'head-hedgehog', 'barn-owl': 'head-barn-owl', woodpecker: 'head-woodpecker',
   eagle: 'head-eagle', weasel: 'head-weasel', skunk: 'head-skunk', lynx: 'head-lynx',
   puma: 'head-lynx', moose: 'head-moose', bat: 'head-bat', marten: 'head-marten',
-  'red-deer': 'head-deer', roe: 'head-deer',
 };
 
 // Reparte `count` asientos en `rows` filas entre xStart..xEnd, en
-// forma de graderio curvo (el centro de la fila se adelanta hacia
-// el publico, como un graderio real en abanico alrededor del
-// director). curve = cuanto se adelanta el centro (en unidades).
+// forma de graderio curvo (el centro de cada fila se adelanta
+// hacia el publico, como un graderio real en abanico).
 function fanRows(count, rows, { xStart, xEnd, y0, yStep, scale0, scaleStep = 0.08, curve = 0 }) {
   const seats = [];
   const base = Math.floor(count / rows);
@@ -58,123 +56,114 @@ function fanRows(count, rows, { xStart, xEnd, y0, yStep, scale0, scaleStep = 0.0
       const t = rowCount === 1 ? 0.5 : i / (rowCount - 1);
       let x = xStart + t * (xEnd - xStart) + stagger;
       x = Math.max(xStart - 10, Math.min(xEnd + 10, x));
-      const u = t * 2 - 1; // -1..1
+      const u = t * 2 - 1;
       const bow = curve * (1 - u * u);
-      seats.push({
-        x,
-        y: y0 - r * yStep + bow,
-        scale: scale0 - r * scaleStep + bow * 0.0015,
-        order: idx++,
-      });
+      seats.push({ x, y: y0 - r * yStep + bow, scale: scale0 - r * scaleStep + bow * 0.0015, order: idx++ });
     }
   }
   return seats;
 }
 
-// Definicion de cada seccion: cuantos musicos, simbolo de cuerpo,
-// especie/color, y la zona del escenario que ocupan.
 const SECTIONS = [
   {
     id: 'violin1', label: 'Violines I', body: 'body-strings-small', species: 'rabbit',
-    seats: fanRows(12, 2, { xStart: 210, xEnd: 500, y0: 850, yStep: 78, scale0: 1.38, curve: 46 }),
+    seats: fanRows(9, 2, { xStart: 130, xEnd: 390, y0: 850, yStep: 80, scale0: 1.28, curve: 36 }),
     wave: 0,
   },
   {
     id: 'violin2', label: 'Violines II', body: 'body-strings-small', species: 'hare',
-    seats: fanRows(10, 2, { xStart: 510, xEnd: 775, y0: 850, yStep: 78, scale0: 1.38, curve: 46 }),
+    seats: fanRows(7, 2, { xStart: 400, xEnd: 600, y0: 850, yStep: 80, scale0: 1.28, curve: 30 }),
     wave: 0,
   },
   {
     id: 'viola', label: 'Violas', body: 'body-strings-small', species: 'wolf',
-    seats: fanRows(8, 2, { xStart: 760, xEnd: 995, y0: 845, yStep: 78, scale0: 1.33, curve: 42 }),
+    seats: fanRows(6, 2, { xStart: 1000, xEnd: 1190, y0: 845, yStep: 80, scale0: 1.24, curve: 26 }),
     wave: 0,
   },
   {
     id: 'cello', label: 'Chelos', body: 'body-strings-cello', species: 'badger',
-    seats: fanRows(8, 2, { xStart: 1000, xEnd: 1270, y0: 862, yStep: 80, scale0: 1.38, curve: 42 }),
+    seats: fanRows(6, 2, { xStart: 1200, xEnd: 1410, y0: 862, yStep: 82, scale0: 1.28, curve: 26 }),
     wave: 1,
   },
   {
     id: 'bass', label: 'Contrabajos', body: 'body-strings-bass', species: 'boar',
-    seats: fanRows(6, 1, { xStart: 1250, xEnd: 1490, y0: 760, yStep: 0, scale0: 1.22, curve: 22 }),
+    seats: fanRows(4, 1, { xStart: 1420, xEnd: 1560, y0: 760, yStep: 0, scale0: 1.1 }),
     wave: 1,
   },
   {
     id: 'harp', label: 'Arpa', body: 'body-harp', species: 'cat',
-    seats: fanRows(1, 1, { xStart: 1510, xEnd: 1510, y0: 810, yStep: 0, scale0: 1.28 }),
+    seats: fanRows(1, 1, { xStart: 70, xEnd: 70, y0: 800, yStep: 0, scale0: 1.2 }),
     wave: 1,
   },
   {
     id: 'flute', label: 'Flautas', body: 'body-flute', species: 'squirrel',
-    seats: fanRows(3, 1, { xStart: 510, xEnd: 650, y0: 648, yStep: 0, scale0: 1.05, curve: 14 }),
+    seats: fanRows(2, 1, { xStart: 370, xEnd: 460, y0: 645, yStep: 0, scale0: 0.95 }),
     wave: 2,
   },
   {
     id: 'oboe', label: 'Oboes', body: 'body-reed', species: 'weasel',
-    seats: fanRows(3, 1, { xStart: 670, xEnd: 790, y0: 648, yStep: 0, scale0: 1.05, curve: 14 }),
+    seats: fanRows(2, 1, { xStart: 470, xEnd: 560, y0: 645, yStep: 0, scale0: 0.95 }),
     wave: 2,
   },
   {
     id: 'clarinet', label: 'Clarinetes', body: 'body-reed', species: 'marten',
-    seats: fanRows(3, 1, { xStart: 810, xEnd: 930, y0: 648, yStep: 0, scale0: 1.05, curve: 14 }),
+    seats: fanRows(2, 1, { xStart: 1040, xEnd: 1130, y0: 645, yStep: 0, scale0: 0.95 }),
     wave: 2,
   },
   {
     id: 'bassoon', label: 'Fagotes', body: 'body-bassoon', species: 'hedgehog',
-    seats: fanRows(3, 1, { xStart: 950, xEnd: 1080, y0: 648, yStep: 0, scale0: 1.05, curve: 14 }),
+    seats: fanRows(2, 1, { xStart: 1140, xEnd: 1230, y0: 645, yStep: 0, scale0: 0.95 }),
     wave: 2,
   },
   {
     id: 'horn', label: 'Trompas', body: 'body-horn', species: 'moose',
-    seats: fanRows(5, 1, { xStart: 430, xEnd: 650, y0: 508, yStep: 0, scale0: 0.92, curve: 10 }),
+    seats: fanRows(4, 1, { xStart: 330, xEnd: 560, y0: 505, yStep: 0, scale0: 0.84 }),
     wave: 3,
   },
   {
     id: 'trumpet', label: 'Trompetas', body: 'body-trumpet', species: 'eagle',
-    seats: fanRows(3, 1, { xStart: 690, xEnd: 820, y0: 508, yStep: 0, scale0: 0.92, curve: 10 }),
+    seats: fanRows(2, 1, { xStart: 570, xEnd: 660, y0: 505, yStep: 0, scale0: 0.84 }),
     wave: 3,
   },
   {
     id: 'trombone', label: 'Trombones', body: 'body-trombone', species: 'lynx',
-    seats: fanRows(3, 1, { xStart: 850, xEnd: 980, y0: 508, yStep: 0, scale0: 0.92, curve: 10 }),
+    seats: fanRows(2, 1, { xStart: 950, xEnd: 1040, y0: 505, yStep: 0, scale0: 0.84 }),
     wave: 3,
   },
   {
     id: 'bass-trombone', label: 'Trombon bajo', body: 'body-trombone', species: 'puma',
-    seats: fanRows(1, 1, { xStart: 1005, xEnd: 1005, y0: 508, yStep: 0, scale0: 0.92 }),
+    seats: fanRows(1, 1, { xStart: 1060, xEnd: 1060, y0: 505, yStep: 0, scale0: 0.84 }),
     wave: 3,
   },
   {
     id: 'tuba', label: 'Tuba', body: 'body-tuba', species: 'moose',
-    seats: fanRows(1, 1, { xStart: 1060, xEnd: 1060, y0: 508, yStep: 0, scale0: 0.96 }),
+    seats: fanRows(1, 1, { xStart: 1130, xEnd: 1130, y0: 505, yStep: 0, scale0: 0.88 }),
     wave: 3,
   },
   {
     id: 'timpani', label: 'Timbales', body: 'body-timpani', species: 'owl',
-    seats: fanRows(1, 1, { xStart: 555, xEnd: 555, y0: 378, yStep: 0, scale0: 0.84 }),
+    seats: fanRows(1, 1, { xStart: 460, xEnd: 460, y0: 370, yStep: 0, scale0: 0.78 }),
     wave: 4,
   },
   {
     id: 'snare-bd', label: 'Caja y bombo', body: 'body-snare-bd', species: 'woodpecker',
-    seats: fanRows(1, 1, { xStart: 735, xEnd: 735, y0: 378, yStep: 0, scale0: 0.84 }),
+    seats: fanRows(1, 1, { xStart: 620, xEnd: 620, y0: 370, yStep: 0, scale0: 0.78 }),
     wave: 4,
   },
   {
     id: 'cymbals', label: 'Platillos y triangulo', body: 'body-cymbals', species: 'skunk',
-    seats: fanRows(1, 1, { xStart: 900, xEnd: 900, y0: 378, yStep: 0, scale0: 0.84 }),
+    seats: fanRows(1, 1, { xStart: 980, xEnd: 980, y0: 370, yStep: 0, scale0: 0.78 }),
     wave: 4,
   },
   {
     id: 'mallets', label: 'Xilofono y campanas', body: 'body-mallets', species: 'bat',
-    seats: fanRows(1, 1, { xStart: 1065, xEnd: 1065, y0: 378, yStep: 0, scale0: 0.84 }),
+    seats: fanRows(1, 1, { xStart: 1140, xEnd: 1140, y0: 370, yStep: 0, scale0: 0.78 }),
     wave: 4,
   },
 ];
 
-// Zorro al piano (presente en los tres movimientos) y Mapache,
-// siempre dirigiendo desde el podio. Son simbolos completos
-// (cuello a pies ~210 unidades locales), distintos del sistema
-// cabeza+cuerpo compuesto que usan los demas musicos.
-const PIANO_POS = { x: 115, y: 780, scale: 1.25 };
+// Zorro al piano de cola (centro, siempre presente) y Mapache en
+// su tarima justo detras, dirigiendo desde el inicio.
+const PIANO_POS = { x: 800, y: 815, scale: 1.0 };
 const PIANO_SPECIES = 'fox';
-const CONDUCTOR_POS = { x: 800, y: 705, scale: 1.32 };
+const CONDUCTOR_POS = { x: 800, y: 600, scale: 1.18 };

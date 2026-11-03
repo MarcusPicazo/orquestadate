@@ -86,6 +86,16 @@ body.movement-3 .musician.is-awake {
    en el <g class="musician"> que ya trae su propio transform de
    posicion — animar "transform" ahi lo pisaria por completo) */
 @keyframes sway { 0%,100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
+.enter-inner {
+  transform-box: fill-box; transform-origin: 50% 100%;
+  transform: translateY(46px) scale(.85);
+  transition: transform 1.1s var(--ease-soft);
+  transition-delay: var(--d, 0s);
+}
+body.movement-2 .musician.is-awake .enter-inner,
+body.movement-3 .musician.is-awake .enter-inner {
+  transform: translateY(0) scale(1);
+}
 .sway-inner { transform-box: fill-box; transform-origin: 50% 85%; }
 body.movement-2 .musician.is-awake .sway-inner,
 body.movement-3 .musician.is-awake .sway-inner {
@@ -126,20 +136,33 @@ body.is-playing #conductor-layer #tail-c { animation: conductTail 2.8s ease-in-o
 }
 
 /* ===== animaciones de interpretacion por instrumento ===== */
-.play-arm-violin { transform-origin: 15px 21px; }
-.play-arm-cello { transform-origin: 14px 14px; }
-.play-arm-bass { transform-origin: 14px 16px; }
-.play-arm-harp { transform-origin: 13px 16px; }
-.play-arm-timpani-l { transform-origin: -14px 12px; }
-.play-arm-timpani-r { transform-origin: 14px 12px; }
-.play-arm-snare-l { transform-origin: -14px 16px; }
-.play-arm-snare-r { transform-origin: 14px 16px; }
-.play-arm-mallets-l { transform-origin: -14px 16px; }
-.play-arm-mallets-r { transform-origin: 14px 16px; }
-.play-arm-cymbals-l { transform-origin: -13px 14px; }
-.play-arm-cymbals-r { transform-origin: 13px 14px; }
-.play-arm-piano-l { transform-origin: -14px 12px; }
-.play-arm-piano-r { transform-origin: 14px 12px; }
+.play-arm-violin { transform-origin: 16px 20px; }
+.play-arm-cello { transform-origin: 15px 12px; }
+.play-arm-bass { transform-origin: 15px 18px; }
+.play-arm-harp { transform-origin: 14px 15px; }
+.play-arm-timpani-l { transform-origin: -15px 11px; }
+.play-arm-timpani-r { transform-origin: 15px 11px; }
+.play-arm-snare-l { transform-origin: -15px 15px; }
+.play-arm-snare-r { transform-origin: 15px 15px; }
+.play-arm-mallets-l { transform-origin: -15px 15px; }
+.play-arm-mallets-r { transform-origin: 15px 15px; }
+.play-arm-cymbals-l { transform-origin: -15px 13px; }
+.play-arm-cymbals-r { transform-origin: 15px 13px; }
+.play-arm-piano-l { transform-origin: -15px 11px; }
+.play-arm-piano-r { transform-origin: 15px 11px; }
+.play-arm-flute-l { transform-origin: -15px 14px; }
+.play-arm-flute-r { transform-origin: 15px 14px; }
+.play-arm-reed-l { transform-origin: -15px 13px; }
+.play-arm-reed-r { transform-origin: 15px 13px; }
+.play-arm-bassoon-l { transform-origin: -16px 15px; }
+.play-arm-bassoon-r { transform-origin: 16px 15px; }
+.play-arm-horn-l { transform-origin: -16px 15px; }
+.play-arm-horn-r { transform-origin: 16px 15px; }
+.play-arm-trumpet-l { transform-origin: -15px 13px; }
+.play-arm-trumpet-r { transform-origin: 15px 13px; }
+.play-arm-trombone { transform-origin: 15px 13px; }
+.play-arm-tuba-l { transform-origin: -15px 22px; }
+.play-arm-tuba-r { transform-origin: 14px 24px; }
 
 body.is-playing .musician.is-awake .play-arm-violin { animation: bowStrings .85s ease-in-out infinite; }
 body.is-playing .musician.is-awake .play-arm-cello { animation: bowStrings .95s ease-in-out infinite; }
@@ -179,6 +202,38 @@ body.is-playing .musician.is-awake .play-arm-piano-l { animation: pianoTapL .4s 
 body.is-playing .musician.is-awake .play-arm-piano-r { animation: pianoTapR .4s ease-in-out infinite .2s; }
 @keyframes pianoTapL { 0%,100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
 @keyframes pianoTapR { 0%,100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
+
+/* viento madera: suave vaiven de aliento */
+body.is-playing .musician.is-awake .play-arm-flute-l,
+body.is-playing .musician.is-awake .play-arm-flute-r { animation: breathSway 1.6s ease-in-out infinite; }
+@keyframes breathSway {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+body.is-playing .musician.is-awake .play-arm-reed-l,
+body.is-playing .musician.is-awake .play-arm-reed-r,
+body.is-playing .musician.is-awake .play-arm-bassoon-l,
+body.is-playing .musician.is-awake .play-arm-bassoon-r { animation: breathBob 1.3s ease-in-out infinite; }
+@keyframes breathBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(2.4px); }
+}
+
+/* metales: ajuste de boquilla + trombon con vara movil */
+body.is-playing .musician.is-awake .play-arm-horn-l,
+body.is-playing .musician.is-awake .play-arm-horn-r { animation: breathBob 1.5s ease-in-out infinite; }
+body.is-playing .musician.is-awake .play-arm-trumpet-r { animation: valvePress .4s ease-in-out infinite; }
+@keyframes valvePress {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-6deg); }
+}
+body.is-playing .musician.is-awake .play-arm-trombone { animation: slideMove 1s ease-in-out infinite; }
+@keyframes slideMove {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(6px); }
+}
+body.is-playing .musician.is-awake .play-arm-tuba-l,
+body.is-playing .musician.is-awake .play-arm-tuba-r { animation: breathBob 1.7s ease-in-out infinite; }
 
 /* cortina final */
 .curtain-final {

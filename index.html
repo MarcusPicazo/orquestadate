@@ -119,18 +119,24 @@
       <path d="M 40,1000 L 1560,1000 L 1490,900 L 110,900 Z" fill="url(#carpetShade)"/>
       <path d="M 110,900 L 1490,900" stroke="#cda45e" stroke-width="3" opacity=".5"/>
 
-      <!-- podio del director -->
-      <g id="podium" aria-hidden="true">
-        <ellipse cx="800" cy="935" rx="64" ry="16" fill="#1c0e10" opacity=".55"/>
-        <path d="M 758,892 L 842,892 L 852,936 L 748,936 Z" fill="#3a2d1f" stroke="#1c140c" stroke-width="2"/>
-        <rect x="752" y="884" width="96" height="10" rx="2" fill="#4a3826"/>
-        <rect x="752" y="884" width="96" height="3" fill="#cda45e"/>
+      <!-- piano de cola (prop fijo, al centro; el zorro se sienta al teclado) -->
+      <g id="piano-prop" aria-hidden="true">
+        <ellipse cx="800" cy="825" rx="150" ry="30" fill="#05060a" opacity=".4"/>
+        <path d="M 700,815 C 640,790 630,660 720,600 C 780,562 940,562 1000,600 C 1090,660 1080,790 1020,815 L 965,780 L 715,780 Z" fill="#111219" stroke="#05060a" stroke-width="3"/>
+        <path d="M 720,600 C 780,562 940,562 1000,600 C 980,575 920,558 860,558 C 800,558 740,575 720,600 Z" fill="#1c1d26" stroke="#05060a" stroke-width="2.4" opacity=".92"/>
+        <line x1="700" y1="620" x2="700" y2="800" stroke="#05060a" stroke-width="5"/>
+        <line x1="1020" y1="630" x2="1020" y2="805" stroke="#05060a" stroke-width="5"/>
+        <rect x="705" y="845" width="190" height="42" rx="3" fill="#0c0d12" stroke="#05060a" stroke-width="2.5"/>
+        <rect x="716" y="851" width="168" height="27" rx="2" fill="#f3f1e9" stroke="#05060a" stroke-width="1.6"/>
+        <rect x="716" y="851" width="168" height="27" fill="url(#piano-keys)"/>
       </g>
 
-      <!-- piano (prop fijo; el musico se dibuja encima) -->
-      <g id="piano-prop" aria-hidden="true">
-        <path d="M 15,940 L 205,940 L 217,977 L 3,977 Z" fill="#0c0d12" stroke="#05060a" stroke-width="2.5"/>
-        <path d="M 205,940 Q 257,898 225,845 L 183,855 L 183,940 Z" fill="#111219" stroke="#05060a" stroke-width="2.5"/>
+      <!-- podio del director, justo detras del piano -->
+      <g id="podium" aria-hidden="true">
+        <ellipse cx="800" cy="695" rx="56" ry="14" fill="#1c0e10" opacity=".5"/>
+        <path d="M 762,658 L 838,658 L 848,696 L 752,696 Z" fill="#3a2d1f" stroke="#1c140c" stroke-width="2"/>
+        <rect x="756" y="650" width="88" height="10" rx="2" fill="#4a3826"/>
+        <rect x="756" y="650" width="88" height="3" fill="#cda45e"/>
       </g>
 
       <g id="musicians-layer"></g>

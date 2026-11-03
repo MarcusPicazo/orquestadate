@@ -73,9 +73,13 @@
         g.style.color = SPECIES_COLOR[section.species] || '#9aa0ab';
         g.setAttribute('aria-label', section.label);
 
+        const enter = document.createElementNS(ns, 'g');
+        enter.setAttribute('class', 'enter-inner');
+        g.appendChild(enter);
+
         const inner = document.createElementNS(ns, 'g');
         inner.setAttribute('class', 'sway-inner');
-        g.appendChild(inner);
+        enter.appendChild(inner);
 
         const useBody = document.createElementNS(ns, 'use');
         setUseHref(useBody, '#' + section.body);
@@ -85,6 +89,7 @@
         if (headId) {
           const useHead = document.createElementNS(ns, 'use');
           setUseHref(useHead, '#' + headId);
+          useHead.setAttribute('transform', 'scale(1.22)');
           inner.appendChild(useHead);
         }
 
@@ -106,6 +111,7 @@
     setUseHref(useFoxBody, '#body-piano');
     const useFoxHead = document.createElementNS(ns, 'use');
     setUseHref(useFoxHead, '#' + HEAD_FOR[PIANO_SPECIES]);
+    useFoxHead.setAttribute('transform', 'scale(1.22)');
     gFox.appendChild(useFoxBody);
     gFox.appendChild(useFoxHead);
     pianoMusicianLayer.appendChild(gFox);
