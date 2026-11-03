@@ -164,6 +164,6 @@ const SECTIONS = [
 
 // Zorro al piano de cola (centro, siempre presente) y Mapache en
 // su tarima justo detras, dirigiendo desde el inicio.
-const PIANO_POS = { x: 800, y: 815, scale: 1.0 };
+const PIANO_POS = { x: 700, y: 845, scale: 1.3 };
 const PIANO_SPECIES = 'fox';
 const CONDUCTOR_POS = { x: 800, y: 600, scale: 1.18 };

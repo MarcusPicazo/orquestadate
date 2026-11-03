@@ -98,22 +98,17 @@
       });
     });
 
-    // zorro al piano: presente en los tres movimientos
+    // zorro al piano: personaje completo de perfil, presente en los tres movimientos
     const gFox = document.createElementNS(ns, 'g');
     gFox.id = 'piano-fox';
-    gFox.classList.add('always-on', 'musician', 'is-awake');
-    gFox.style.color = SPECIES_COLOR[PIANO_SPECIES];
+    gFox.classList.add('always-on');
     gFox.setAttribute(
       'transform',
       'translate(' + PIANO_POS.x + ',' + PIANO_POS.y + ') scale(' + PIANO_POS.scale + ')'
     );
-    const useFoxBody = document.createElementNS(ns, 'use');
-    setUseHref(useFoxBody, '#body-piano');
-    const useFoxHead = document.createElementNS(ns, 'use');
-    setUseHref(useFoxHead, '#' + HEAD_FOR[PIANO_SPECIES]);
-    useFoxHead.setAttribute('transform', 'scale(1.22)');
-    gFox.appendChild(useFoxBody);
-    gFox.appendChild(useFoxHead);
+    const useFox = document.createElementNS(ns, 'use');
+    setUseHref(useFox, '#fox-piano-profile');
+    gFox.appendChild(useFox);
     pianoMusicianLayer.appendChild(gFox);
 
     // director
