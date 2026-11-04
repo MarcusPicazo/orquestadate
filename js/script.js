@@ -42,15 +42,19 @@
   let seeking = false;
   let symbolsReady = false;
 
-  // oscurece un color hex (ej. "#d9824a") un porcentaje para el
-  // antifaz: debe ser un tono mas oscuro del propio pelaje, no un
-  // gris fijo, salvo para especies ya grises (donde casi no cambia).
+  // oscurece un color hex (ej. "#d9824a") para el antifaz: debe ser
+  // un tono mas oscuro del propio pelaje, no un gris fijo. Combina
+  // un porcentaje con una resta fija para que especies YA oscuras
+  // (mofeta, murcielago) tambien saquen un antifaz con contraste
+  // visible, en vez de casi fundirse con el cuerpo.
   function darkenColor(hex, amount) {
     const m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     if (!m) return hex;
-    const r = Math.round(parseInt(m[1], 16) * (1 - amount));
-    const g = Math.round(parseInt(m[2], 16) * (1 - amount));
-    const b = Math.round(parseInt(m[3], 16) * (1 - amount));
+    const drop = 26;
+    const shade = (v) => Math.round(parseInt(v, 16) * (1 - amount) - drop);
+    const r = shade(m[1]);
+    const g = shade(m[2]);
+    const b = shade(m[3]);
     const toHex = (n) => Math.max(0, Math.min(255, n)).toString(16).padStart(2, '0');
     return '#' + toHex(r) + toHex(g) + toHex(b);
   }
@@ -213,7 +217,7 @@
 
   // ---------- cargar la libreria de simbolos (assets/symbols.svg) ----------
   function loadSymbols() {
-    return fetch('assets/symbols.svg?v=35')
+    return fetch('assets/symbols.svg?v=37')
       .then((r) => r.text())
       .then((text) => {
         const parser = new DOMParser();
