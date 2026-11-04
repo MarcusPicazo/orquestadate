@@ -80,12 +80,12 @@ body.movement-3 .musician.is-awake {
 /* coro: solo en el movimiento III (Can't Help Falling in Love) */
 body.movement-2 .musician.is-awake.singer { opacity: 0; }
 body.movement-3 .musician.is-awake.singer { opacity: 1; }
-body.movement-2 .musician.is-awake.singer .enter-inner { transform: translateY(110px) scale(.7); }
+body.movement-2 .musician.is-awake.singer .enter-inner { transform: translateY(110px) translateX(var(--walkx, 0px)) scale(.7); }
 
 .musician .bow-arm, .musician .mallet-arm { transform-box: fill-box; }
 
-#conductor-layer { opacity: 1; }
-.always-on { opacity: 1 !important; filter: none !important; }
+/* el director y el zorro ya no aparecen siempre: caminan a escena
+   cuando el guion lo indica (ver .walk-inner mas abajo) */
 
 /* animaciones sutiles de interpretacion (en un <g> interno, nunca
    en el <g class="musician"> que ya trae su propio transform de
@@ -93,14 +93,40 @@ body.movement-2 .musician.is-awake.singer .enter-inner { transform: translateY(1
 @keyframes sway { 0%,100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
 .enter-inner {
   transform-box: fill-box; transform-origin: 50% 100%;
-  transform: translateY(110px) scale(.7);
+  transform: translateY(110px) translateX(var(--walkx, 0px)) scale(.7);
   transition: transform 1.3s var(--ease-soft);
   transition-delay: var(--d, 0s);
 }
 body.movement-2 .musician.is-awake .enter-inner,
 body.movement-3 .musician.is-awake .enter-inner {
-  transform: translateY(0) scale(1);
+  transform: translateY(0) translateX(0) scale(1);
 }
+
+/* presentacion uno por uno: salto + ojos cerrados + boca con
+   colmillos (reutiliza .singer-mouth para el coro) */
+.critter-eyes { transform-box: fill-box; transform-origin: 50% 50%; }
+.critter-mouth-open { transform-box: fill-box; transform-origin: 50% 40%; opacity: 0; }
+.musician.introducing .critter-eyes { transform: scaleY(.1); }
+.musician.introducing .critter-mouth-open,
+.musician.introducing .singer-mouth { opacity: 1; }
+.musician.introducing .enter-inner { animation: introJump .7s var(--ease-soft); }
+@keyframes introJump {
+  0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+  35% { transform: translateY(-46px) translateX(0) scale(1.06); }
+  65% { transform: translateY(6px) translateX(0) scale(.96); }
+}
+
+/* entrada caminando del director y del zorro: arrancan fuera del
+   escenario y caminan a su lugar cuando el guion lo indica */
+.walk-inner {
+  transform-box: fill-box; transform-origin: 50% 100%;
+  opacity: 0;
+  transition: transform 2.3s var(--ease-soft), opacity .4s linear;
+}
+#conductor-layer .walk-inner { transform: translateX(460px); }
+#piano-musician .walk-inner { transform: translateX(-460px); }
+body.mapache-entered #conductor-layer .walk-inner { opacity: 1; transform: translateX(0); }
+body.fox-entered #piano-musician .walk-inner { opacity: 1; transform: translateX(0); }
 .sway-inner { transform-box: fill-box; transform-origin: 50% 85%; }
 body.movement-2 .musician.is-awake .sway-inner,
 body.movement-3 .musician.is-awake .sway-inner {
@@ -307,6 +333,51 @@ body.is-playing .start-overlay, body.has-started .start-overlay {
   border-radius: 2px; cursor: pointer; transition: background .3s, box-shadow .3s;
 }
 .btn-gold:hover { background: linear-gradient(180deg, rgba(205,164,94,.3), rgba(205,164,94,.12)); box-shadow: 0 0 22px rgba(205,164,94,.25); }
+
+/* globo de dialogo de la historia */
+.dialogue-box {
+  position: absolute; left: 50%; bottom: 6%; z-index: 12;
+  transform: translate(-50%, 12px);
+  width: min(86%, 640px);
+  background: linear-gradient(180deg, rgba(20,15,28,.96), rgba(8,6,12,.97));
+  border: 1.5px solid var(--gold); border-radius: 14px;
+  padding: 1rem 1.3rem 1.1rem;
+  box-shadow: 0 10px 40px rgba(0,0,0,.55);
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity .35s ease, transform .35s var(--ease-soft), visibility .35s;
+}
+.dialogue-box.is-open {
+  opacity: 1; visibility: visible; pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+.dialogue-speaker {
+  font-family: var(--font-serif); font-style: italic; font-weight: 600;
+  color: var(--gold-light); font-size: clamp(.85rem, 2.4vw, 1.05rem);
+  margin: 0 0 .3rem;
+}
+.dialogue-text {
+  font-family: var(--font-sans); color: var(--ivory);
+  font-size: clamp(.78rem, 2.1vw, .95rem); line-height: 1.45;
+  margin: 0 0 .8rem; max-height: 30vh; overflow-y: auto;
+}
+.dialogue-row { display: flex; justify-content: flex-end; }
+.dialogue-continue { padding: .55em 1.4em; font-size: clamp(.7rem, 2vw, .8rem); }
+
+.dialogue-bubble-small {
+  position: absolute; left: 50%; top: 18%; z-index: 12;
+  transform: translate(-50%, -8px);
+  background: rgba(246,241,228,.96); color: #1c1320;
+  border-radius: 12px; padding: .5em .9em;
+  font-family: var(--font-sans); font-size: clamp(.75rem, 2vw, .88rem);
+  box-shadow: 0 6px 20px rgba(0,0,0,.4);
+  opacity: 0; visibility: hidden;
+  transition: opacity .35s ease, transform .35s var(--ease-soft), visibility .35s;
+}
+.dialogue-bubble-small.is-open { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+.dialogue-bubble-small::after {
+  content: ''; position: absolute; left: 50%; bottom: -8px; transform: translateX(-50%);
+  border: 8px solid transparent; border-top-color: rgba(246,241,228,.96);
+}
 
 /* ===================== transporte ===================== */
 .transport {

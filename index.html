@@ -190,6 +190,15 @@
       <p class="start-sub">Una sinfonia privada, dirigida por Mapache Mapachoso</p>
       <button id="btn-start" class="btn-gold" type="button">Comenzar el concierto</button>
     </div>
+
+    <div id="dialogue-box" class="dialogue-box">
+      <p class="dialogue-speaker" id="dialogue-speaker">Mapache Mapachoso</p>
+      <p class="dialogue-text" id="dialogue-text"></p>
+      <div class="dialogue-row">
+        <button id="dialogue-continue" class="btn-gold dialogue-continue" type="button">Continuar</button>
+      </div>
+    </div>
+    <div id="dialogue-bubble-small" class="dialogue-bubble-small"></div>
   </div>
 </div>
 
@@ -216,8 +225,12 @@
 </div>
 
 <audio id="audio-player" preload="metadata"></audio>
+<audio id="audio-tuning" src="assets/audio/04-afinacion.mp3" loop preload="auto"></audio>
+<audio id="audio-applause" src="assets/audio/05-aplausos.mp3" preload="auto"></audio>
 
 <script src="js/orchestra-data.js?v=38"></script>
 <script src="js/script.js?v=38"></script>
+<script src="js/story-data.js?v=3"></script>
+<script src="js/story.js?v=2"></script>
 </body>
 </html>

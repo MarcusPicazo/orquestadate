@@ -98,6 +98,7 @@
           'translate(' + seat.x + ',' + seat.y + ') scale(' + seat.scale.toFixed(3) + ')'
         );
         g.style.setProperty('--d', delay.toFixed(2) + 's');
+        g.style.setProperty('--walkx', (seat.x < 800 ? -260 : 260) + 'px');
         const furColor = SPECIES_COLOR[section.species] || '#9aa0ab';
         g.style.color = furColor;
         g.style.setProperty('--mask-color', darkenColor(furColor, 0.55));
@@ -147,6 +148,7 @@
         'translate(' + seat.x + ',' + seat.y + ') scale(' + seat.scale.toFixed(3) + ')'
       );
       g.style.setProperty('--d', delay.toFixed(2) + 's');
+      g.style.setProperty('--walkx', (seat.x < 800 ? -260 : 260) + 'px');
       const furColor = SPECIES_COLOR[seat.species] || '#9aa0ab';
       g.style.color = furColor;
       g.style.setProperty('--mask-color', darkenColor(furColor, 0.55));
@@ -178,36 +180,43 @@
       musiciansLayer.appendChild(g);
     });
 
-    // zorro al piano: personaje completo de perfil, presente en los tres movimientos
+    // zorro al piano: personaje completo de perfil. Camina a escena
+    // cuando el guion lo indica (ver .walk-inner / body.fox-entered).
     const gFox = document.createElementNS(ns, 'g');
     gFox.id = 'piano-fox';
-    gFox.classList.add('always-on');
     gFox.setAttribute(
       'transform',
       'translate(' + PIANO_POS.x + ',' + PIANO_POS.y + ') scale(' + PIANO_POS.scale + ')'
     );
+    const foxWalk = document.createElementNS(ns, 'g');
+    foxWalk.setAttribute('class', 'walk-inner');
+    gFox.appendChild(foxWalk);
     const foxShadow = document.createElementNS(ns, 'ellipse');
     foxShadow.setAttribute('cx', '100'); foxShadow.setAttribute('cy', '186');
     foxShadow.setAttribute('rx', '48'); foxShadow.setAttribute('ry', '10');
     foxShadow.setAttribute('fill', '#05030a'); foxShadow.setAttribute('opacity', '.5');
-    gFox.appendChild(foxShadow);
+    foxWalk.appendChild(foxShadow);
     const foxClone = cloneSymbol('fox-piano');
-    if (foxClone) gFox.appendChild(foxClone);
+    if (foxClone) foxWalk.appendChild(foxClone);
     pianoMusicianLayer.appendChild(gFox);
 
-    // director
+    // director: camina a escena cuando el guion lo indica (ver
+    // .walk-inner / body.mapache-entered)
     const gConductor = document.createElementNS(ns, 'g');
     gConductor.setAttribute(
       'transform',
       'translate(' + CONDUCTOR_POS.x + ',' + CONDUCTOR_POS.y + ') scale(' + CONDUCTOR_POS.scale + ')'
     );
+    const conductorWalk = document.createElementNS(ns, 'g');
+    conductorWalk.setAttribute('class', 'walk-inner');
+    gConductor.appendChild(conductorWalk);
     const conductorShadow = document.createElementNS(ns, 'ellipse');
     conductorShadow.setAttribute('cx', '100'); conductorShadow.setAttribute('cy', '192');
     conductorShadow.setAttribute('rx', '52'); conductorShadow.setAttribute('ry', '11');
     conductorShadow.setAttribute('fill', '#05030a'); conductorShadow.setAttribute('opacity', '.5');
-    gConductor.appendChild(conductorShadow);
+    conductorWalk.appendChild(conductorShadow);
     const conductorClone = cloneSymbol('conductor-mapachoso');
-    if (conductorClone) gConductor.appendChild(conductorClone);
+    if (conductorClone) conductorWalk.appendChild(conductorClone);
     conductorLayer.appendChild(gConductor);
   }
 
@@ -292,7 +301,12 @@
   }
 
   // ---------- eventos ----------
-  btnStart.addEventListener('click', startConcert);
+  // si story.js tomo el control (la experiencia narrada), el boton
+  // de inicio arranca el guion en vez de ir directo al movimiento 1
+  btnStart.addEventListener('click', () => {
+    if (window.StoryEngine) { window.StoryEngine.start(); return; }
+    startConcert();
+  });
   btnPlay.addEventListener('click', togglePlay);
 
   btnPrev.addEventListener('click', () => {
@@ -342,6 +356,9 @@
   audio.addEventListener('play', updatePlayButton);
   audio.addEventListener('pause', updatePlayButton);
   audio.addEventListener('ended', () => {
+    // en la experiencia narrada, story.js decide que pasa al
+    // terminar una pieza (aplausos + dialogo), no el avance libre
+    if (window.StoryEngine) return;
     if (currentMovement < MOVEMENTS.length - 1) {
       loadMovement(currentMovement + 1, true);
     } else {
@@ -356,5 +373,13 @@
     movementIndexEl.textContent = MOVEMENTS[0].index;
     movementTitleEl.textContent = MOVEMENTS[0].title;
     movementSubEl.textContent = MOVEMENTS[0].sub;
+    if (window.StoryEngine) window.StoryEngine.onStageReady();
   });
+
+  // expuesto para js/story.js (la experiencia narrada reutiliza el
+  // reproductor de audio y el cambio de movimiento ya construidos)
+  window.Concert = {
+    audio, MOVEMENTS, loadMovement, setMovementBodyClass, triggerFinale,
+    btnPrev, btnNext,
+  };
 })();
