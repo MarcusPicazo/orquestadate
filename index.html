@@ -148,17 +148,28 @@
         <path d="M 90,0 L 40,68 Q 32,110 30,150 Q 60,180 130,186 Q 210,188 260,168 Q 292,148 288,118 Q 284,90 255,65 Q 220,35 170,18 Q 130,6 90,0 Z" fill="#0c0d12" stroke="#05060a" stroke-width="4"/>
         <path d="M 40,68 Q 32,110 30,150" fill="none" stroke="#2a2b33" stroke-width="2" opacity=".6"/>
         <path d="M 90,0 L 170,18 Q 220,35 255,65" fill="none" stroke="#2a2b33" stroke-width="2" opacity=".5"/>
-        <!-- teclado, bajo las manos del zorro y asomando a la derecha -->
-        <g transform="translate(26,2) rotate(-7 23 128)">
-          <rect x="4" y="108" width="74" height="40" rx="2" fill="#f3f1e9" stroke="#05060a" stroke-width="2.4"/>
-          <line x1="12" y1="108" x2="12" y2="148" stroke="#111219" stroke-width="1.6"/>
-          <line x1="20" y1="108" x2="20" y2="148" stroke="#111219" stroke-width="1.6"/>
-          <line x1="28" y1="108" x2="28" y2="148" stroke="#111219" stroke-width="1.6"/>
-          <line x1="36" y1="108" x2="36" y2="148" stroke="#111219" stroke-width="1.6"/>
-          <line x1="44" y1="108" x2="44" y2="148" stroke="#111219" stroke-width="1.6"/>
-          <line x1="52" y1="108" x2="52" y2="148" stroke="#111219" stroke-width="1.6"/>
-          <line x1="60" y1="108" x2="60" y2="148" stroke="#111219" stroke-width="1.6"/>
-          <line x1="68" y1="108" x2="68" y2="148" stroke="#111219" stroke-width="1.6"/>
+        <!-- teclado, bajo las manos del zorro y asomando a la derecha:
+             teclas blancas con sus divisiones y teclas negras en el
+             patron real (grupos de 2 y 3), para que se reconozca
+             como teclado de piano -->
+        <g transform="translate(22,0) rotate(-7 23 128)">
+          <rect x="4" y="118" width="86" height="22" rx="1.4" fill="#f3f1e9" stroke="#05060a" stroke-width="2.2"/>
+          <line x1="13.6" y1="118" x2="13.6" y2="140" stroke="#111219" stroke-width="1.2"/>
+          <line x1="23.2" y1="118" x2="23.2" y2="140" stroke="#111219" stroke-width="1.2"/>
+          <line x1="32.8" y1="118" x2="32.8" y2="140" stroke="#111219" stroke-width="1.2"/>
+          <line x1="42.4" y1="118" x2="42.4" y2="140" stroke="#111219" stroke-width="1.2"/>
+          <line x1="52" y1="118" x2="52" y2="140" stroke="#111219" stroke-width="1.2"/>
+          <line x1="61.6" y1="118" x2="61.6" y2="140" stroke="#111219" stroke-width="1.2"/>
+          <line x1="71.2" y1="118" x2="71.2" y2="140" stroke="#111219" stroke-width="1.2"/>
+          <line x1="80.8" y1="118" x2="80.8" y2="140" stroke="#111219" stroke-width="1.2"/>
+          <g fill="#111219">
+            <rect x="10.6" y="118" width="4.4" height="13" rx=".6"/>
+            <rect x="20.2" y="118" width="4.4" height="13" rx=".6"/>
+            <rect x="39.4" y="118" width="4.4" height="13" rx=".6"/>
+            <rect x="49" y="118" width="4.4" height="13" rx=".6"/>
+            <rect x="58.6" y="118" width="4.4" height="13" rx=".6"/>
+            <rect x="77.8" y="118" width="4.4" height="13" rx=".6"/>
+          </g>
         </g>
         <!-- patas -->
         <path d="M 42,150 L 36,212 L 48,212 L 50,154 Z" fill="#0c0d12"/>
@@ -206,7 +217,7 @@
 
 <audio id="audio-player" preload="metadata"></audio>
 
-<script src="js/orchestra-data.js?v=34"></script>
-<script src="js/script.js?v=34"></script>
+<script src="js/orchestra-data.js?v=35"></script>
+<script src="js/script.js?v=35"></script>
 </body>
 </html>

@@ -3,17 +3,17 @@
 
   const MOVEMENTS = [
     {
-      key: 'm1', audio: 'assets/audio/01-la-la-land-piano.mp3',
+      key: 'm1', audio: 'assets/audio/01-la-la-land-piano.mp3?v=2',
       index: 'I', title: "Mia & Sebastian's Theme",
       sub: 'La La Land · Mapache Mapachoso, piano solo',
     },
     {
-      key: 'm2', audio: 'assets/audio/02-cinema-paradiso.mp3',
+      key: 'm2', audio: 'assets/audio/02-cinema-paradiso.mp3?v=2',
       index: 'II', title: 'Cinema Paradiso',
       sub: 'Ennio Morricone · la orquesta se une',
     },
     {
-      key: 'm3', audio: 'assets/audio/03-cant-help-falling-in-love.mp3',
+      key: 'm3', audio: 'assets/audio/03-cant-help-falling-in-love.mp3?v=2',
       index: 'III', title: "Can't Help Falling in Love",
       sub: 'Finale orquestal',
     },
@@ -41,6 +41,19 @@
   let currentMovement = 0;
   let seeking = false;
   let symbolsReady = false;
+
+  // oscurece un color hex (ej. "#d9824a") un porcentaje para el
+  // antifaz: debe ser un tono mas oscuro del propio pelaje, no un
+  // gris fijo, salvo para especies ya grises (donde casi no cambia).
+  function darkenColor(hex, amount) {
+    const m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    if (!m) return hex;
+    const r = Math.round(parseInt(m[1], 16) * (1 - amount));
+    const g = Math.round(parseInt(m[2], 16) * (1 - amount));
+    const b = Math.round(parseInt(m[3], 16) * (1 - amount));
+    const toHex = (n) => Math.max(0, Math.min(255, n)).toString(16).padStart(2, '0');
+    return '#' + toHex(r) + toHex(g) + toHex(b);
+  }
 
   const XLINK = 'http://www.w3.org/1999/xlink';
   function setUseHref(useEl, id) {
@@ -85,7 +98,9 @@
           'translate(' + seat.x + ',' + seat.y + ') scale(' + seat.scale.toFixed(3) + ')'
         );
         g.style.setProperty('--d', delay.toFixed(2) + 's');
-        g.style.color = SPECIES_COLOR[section.species] || '#9aa0ab';
+        const furColor = SPECIES_COLOR[section.species] || '#9aa0ab';
+        g.style.color = furColor;
+        g.style.setProperty('--mask-color', darkenColor(furColor, 0.55));
         g.setAttribute('aria-label', section.label);
 
         const enter = document.createElementNS(ns, 'g');
@@ -117,6 +132,50 @@
         musiciansLayer.appendChild(g);
         globalOrder++;
       });
+    });
+
+    // coro: solo aparece en el movimiento III (Can't Help Falling in
+    // Love), hasta el fondo del escenario. Misma mecanica que los
+    // musicos (entrada + mecida), pero con clase "singer" aparte
+    // para que la opacidad solo se active en movement-3 (ver CSS).
+    (SINGERS || []).forEach((seat, i) => {
+      const g = document.createElementNS(ns, 'g');
+      const delay = 0.9 + i * 0.05;
+      g.setAttribute('class', 'musician is-awake singer section-singer');
+      g.setAttribute(
+        'transform',
+        'translate(' + seat.x + ',' + seat.y + ') scale(' + seat.scale.toFixed(3) + ')'
+      );
+      g.style.setProperty('--d', delay.toFixed(2) + 's');
+      const furColor = SPECIES_COLOR[seat.species] || '#9aa0ab';
+      g.style.color = furColor;
+      g.style.setProperty('--mask-color', darkenColor(furColor, 0.55));
+      g.setAttribute('aria-label', 'Coro');
+
+      const enter = document.createElementNS(ns, 'g');
+      enter.setAttribute('class', 'enter-inner');
+      g.appendChild(enter);
+
+      const inner = document.createElementNS(ns, 'g');
+      inner.setAttribute('class', 'sway-inner');
+      enter.appendChild(inner);
+
+      const shadow = document.createElementNS(ns, 'ellipse');
+      shadow.setAttribute('cx', '0'); shadow.setAttribute('cy', '63');
+      shadow.setAttribute('rx', '29'); shadow.setAttribute('ry', '7.5');
+      shadow.setAttribute('fill', '#05030a'); shadow.setAttribute('opacity', '.55');
+      inner.appendChild(shadow);
+
+      const bodyClone = cloneSymbol('body-singer');
+      if (bodyClone) inner.appendChild(bodyClone);
+
+      if (seat.bow) {
+        const useBow = document.createElementNS(ns, 'use');
+        setUseHref(useBow, '#hair-bow-pink');
+        inner.appendChild(useBow);
+      }
+
+      musiciansLayer.appendChild(g);
     });
 
     // zorro al piano: personaje completo de perfil, presente en los tres movimientos
@@ -154,7 +213,7 @@
 
   // ---------- cargar la libreria de simbolos (assets/symbols.svg) ----------
   function loadSymbols() {
-    return fetch('assets/symbols.svg?v=34')
+    return fetch('assets/symbols.svg?v=35')
       .then((r) => r.text())
       .then((text) => {
         const parser = new DOMParser();

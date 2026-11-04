@@ -175,7 +175,7 @@
       <path d="M 160,50 L 180,10 L 125,30 Z" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".35" stroke-width="6"/>
       <path d="M 162,42 L 175,18 L 135,30 Z" fill="#fbcfe8"/>
       <ellipse cx="100" cy="75" rx="70" ry="52" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".35" stroke-width="6"/>
-      <path d="M 30,75 L 30,45 Q 100,60 170,45 L 170,75 Q 170,105 100,85 Q 30,105 30,75 Z" fill="#3d4350"/>
+      <path d="M 30,75 L 30,45 Q 100,60 170,45 L 170,75 Q 170,105 100,85 Q 30,105 30,75 Z" fill="var(--mask-color, #3d4350)"/>
       <ellipse cx="100" cy="98" rx="35" ry="25" fill="#f3f1e9"/>
       <g>
         <circle cx="65" cy="72" r="12" fill="#15161c"/><circle cx="62" cy="68" r="4" fill="#fff"/>
@@ -316,10 +316,12 @@
 <!-- metales: trompa (sentada, instrumento enrollado) -->
 <g id="body-horn">
   <use href="#orch-mapache-base"/>
-  <path d="M -4,30 Q -30,26 -26,48 Q -22,66 2,56 Q 24,48 14,30 Q 4,16 -4,30 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="2.2"/>
-  <circle cx="2" cy="36" r="10" fill="#e8c788" stroke="#8a6a32" stroke-width="1.6"/>
-  <g class="play-arm-horn-l"><path d="M -18,17 Q -29,24 -29,40" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/></g>
-  <g class="play-arm-horn-r"><path d="M 18,17 Q 29,24 29,40" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/></g>
+  <path d="M -20,38 Q -36,32 -42,18 Q -45,8 -37,7 Q -32,20 -19,27 Q -8,32 3,32 Z" fill="#e8c788" stroke="#8a6a32" stroke-width="2"/>
+  <circle cx="0" cy="34" r="19" fill="none" stroke="#cda45e" stroke-width="7"/>
+  <path d="M 13,22 Q 17,20 15,19" fill="none" stroke="#cda45e" stroke-width="5" stroke-linecap="round"/>
+  <ellipse cx="14" cy="19" rx="2.4" ry="2" fill="#cfa96a"/>
+  <g class="play-arm-horn-l"><path d="M -18,17 Q -24,20 -21,31" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/></g>
+  <g class="play-arm-horn-r"><path d="M 18,17 Q 18,23 12,28" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/></g>
 </g>
 
 <!-- metales: trompeta (sentada, boquilla en la boca) -->
@@ -405,6 +407,21 @@
   <line x1="-8" y1="42" x2="-4" y2="30" stroke="#d9c79a" stroke-width="2.2" stroke-linecap="round"/></g>
   <g class="play-arm-mallets-r"><path d="M 17,17 Q 19,30 8,42" fill="none" stroke="currentColor" stroke-width="8.5" stroke-linecap="round"/>
   <line x1="8" y1="42" x2="4" y2="30" stroke="#d9c79a" stroke-width="2.2" stroke-linecap="round"/></g>
+</g>
+
+<!-- coro: mapache cantante, sostiene una hoja con partitura y abre
+     y cierra la boca al cantar (ver .singer-mouth en el CSS) -->
+<g id="body-singer">
+  <use href="#orch-mapache-base"/>
+  <path d="M -15,25 Q -4,21 8,25 L 10,47 Q -2,51 -17,47 Z" fill="#f3ece0" stroke="#8a7244" stroke-width="1.4"/>
+  <path d="M -11,29 L 5,27 M -11,34 L 5,32 M -11,39 L 5,37 M -11,44 L 5,42" stroke="#9c8a66" stroke-width="1" opacity=".75"/>
+  <path d="M -17,20 Q -19,30 -13,42" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
+  <path d="M 17,20 Q 16,30 9,42" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
+  <g class="singer-mouth">
+    <ellipse cx="0" cy="20" rx="7" ry="5.5" fill="#2b1810"/>
+    <path d="M -4.5,15.5 L -3,20 L -1.5,15.5 Z" fill="#fff"/>
+    <path d="M 4.5,15.5 L 3,20 L 1.5,15.5 Z" fill="#fff"/>
+  </g>
 </g>
 
 <!-- piano (sentado, para el pianista) -->

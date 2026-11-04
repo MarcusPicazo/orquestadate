@@ -164,6 +164,19 @@ const SECTIONS = [
   },
 ];
 
+// Coro: 5 mapaches cantantes, hasta el fondo y arriba del todo del
+// escenario (mas atras que la percusion), que solo aparecen en el
+// movimiento III (Can't Help Falling in Love). Sostienen una hoja
+// con partitura y abren y cierran la boca al cantar (ver
+// body-singer y la animacion .singer-mouth en el CSS).
+const SINGERS = [
+  { x: 150, y: 300, scale: 0.6, species: 'hare' },
+  { x: 420, y: 290, scale: 0.6, species: 'wolf', bow: true },
+  { x: 800, y: 280, scale: 0.6, species: 'boar' },
+  { x: 1180, y: 290, scale: 0.6, species: 'lynx' },
+  { x: 1450, y: 300, scale: 0.6, species: 'cat', bow: true },
+];
+
 // Zorro al piano de cola (centro, siempre presente) y Mapache en
 // su tarima justo detras, dirigiendo desde el inicio. El pasillo
 // central (x 600-1000) queda libre de atriles para que nadie se

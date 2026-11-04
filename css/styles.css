@@ -77,6 +77,11 @@ body.movement-3 .musician.is-awake {
   opacity: 1;
 }
 
+/* coro: solo en el movimiento III (Can't Help Falling in Love) */
+body.movement-2 .musician.is-awake.singer { opacity: 0; }
+body.movement-3 .musician.is-awake.singer { opacity: 1; }
+body.movement-2 .musician.is-awake.singer .enter-inner { transform: translateY(110px) scale(.7); }
+
 .musician .bow-arm, .musician .mallet-arm { transform-box: fill-box; }
 
 #conductor-layer { opacity: 1; }
@@ -217,6 +222,16 @@ body.is-playing #piano-fox .play-arm-fox-piano { animation: pianoTapR .4s ease-i
   0%, 92%, 100% { transform: scaleY(1); }
   95% { transform: scaleY(.08); }
   97% { transform: scaleY(1); }
+}
+
+/* coro: boca que abre y cierra al cantar, mostrando los colmillos */
+.singer-mouth { transform-box: fill-box; transform-origin: 50% 40%; opacity: 0; }
+body.is-playing .musician.is-awake.singer .singer-mouth {
+  animation: singMouth .55s ease-in-out infinite;
+}
+@keyframes singMouth {
+  0%, 100% { opacity: 0; transform: scaleY(.25); }
+  45%, 65% { opacity: 1; transform: scaleY(1); }
 }
 
 /* viento madera: suave vaiven de aliento */
