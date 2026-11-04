@@ -336,9 +336,9 @@ body.is-playing .start-overlay, body.has-started .start-overlay {
 
 /* globo de dialogo de la historia */
 .dialogue-box {
-  position: absolute; left: 50%; bottom: 6%; z-index: 12;
-  transform: translate(-50%, 12px);
-  width: min(86%, 640px);
+  position: absolute; left: 50%; top: 9%; z-index: 12;
+  transform: translate(-50%, -12px);
+  width: min(78%, 560px);
   background: linear-gradient(180deg, rgba(20,15,28,.96), rgba(8,6,12,.97));
   border: 1.5px solid var(--gold); border-radius: 14px;
   padding: 1rem 1.3rem 1.1rem;
@@ -364,16 +364,17 @@ body.is-playing .start-overlay, body.has-started .start-overlay {
 .dialogue-continue { padding: .55em 1.4em; font-size: clamp(.7rem, 2vw, .8rem); }
 
 .dialogue-bubble-small {
-  position: absolute; left: 50%; top: 18%; z-index: 12;
-  transform: translate(-50%, -8px);
+  position: absolute; left: 50%; top: 18%; z-index: 13;
+  transform: translate(-50%, calc(-100% - 4px));
   background: rgba(246,241,228,.96); color: #1c1320;
   border-radius: 12px; padding: .5em .9em;
   font-family: var(--font-sans); font-size: clamp(.75rem, 2vw, .88rem);
   box-shadow: 0 6px 20px rgba(0,0,0,.4);
+  white-space: nowrap; max-width: 240px; white-space: normal; text-align: center;
   opacity: 0; visibility: hidden;
-  transition: opacity .35s ease, transform .35s var(--ease-soft), visibility .35s;
+  transition: opacity .35s ease, visibility .35s;
 }
-.dialogue-bubble-small.is-open { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+.dialogue-bubble-small.is-open { opacity: 1; visibility: visible; }
 .dialogue-bubble-small::after {
   content: ''; position: absolute; left: 50%; bottom: -8px; transform: translateX(-50%);
   border: 8px solid transparent; border-top-color: rgba(246,241,228,.96);

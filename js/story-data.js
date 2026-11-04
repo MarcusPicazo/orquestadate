@@ -95,17 +95,16 @@ const STORY_SCRIPT = [
   },
   // 24 presentaciones individuales (ver ORCHESTRA_NAMES/ORCHESTRA_LINES)
   ...ORCHESTRA_NAMES.map((name) => ({ type: 'introduce', name })),
-  { type: 'specialBubble', text: 'Спасибо большое!' },
+  { type: 'specialBubble', text: 'Спасибо большое!', target: 'Mapachovsky' },
   { type: 'dialogue', text: 'Puff, si que fueron varios. Para este ultimo tema de la noche... es una sorpresa... es una cancion que fue grabada por un amigo de mi mapacheabuelo. Ambos solian ir a comer uvas juntos, pero el amigo de mi mapacheabuelo la grabo en 1961 para la pelicula Blue Hawaii.' },
   { type: 'dialogue', text: 'Esta inspirada en la melodia de una cancion francesa del siglo XVIII llamada Plaisir d\'amour... muy bonita... muy bonita. No habla de conquistar, perseguir o sufrir por amor. Habla de alguien que ha aceptado que enamorarse es inevitable.' },
   { type: 'dialogue', text: 'No habla de un amor apasionado y dramatico como MapacheRomeo y MapacheJulieta, ni de una obsesion como la de MapacheBerlioz. Habla de algo mucho mas universal: el momento en que dejas de luchar contra tus sentimientos y aceptas que amas a alguien.' },
   { type: 'dialogue', text: 'Asi que vamos a comenzar a tocar.... ¡hey, hey, hey, no! ¡Esperen! ¡Faltaron mis vocales! Les presento a mis mapaches cantantes:' },
   { type: 'walkIn', who: 'singers' },
   ...SINGER_NAMES.map((name) => ({ type: 'introduceSinger', name })),
-  {
-    type: 'dialogue',
-    text: '¡Hey! ¿Donde esta Mapachebajo?... (un mapache responde desde el fondo: "se quedo dormido") ¿Que? ¿Como que se quedo dormido? Siempre se queda dormido... ahhh, bueno, continuemos sin el.',
-  },
+  { type: 'dialogue', text: '¡Hey! ¿Donde esta Mapachebajo?' },
+  { type: 'specialBubble', text: 'Se quedo dormido', target: 'random' },
+  { type: 'dialogue', text: '¿Que? ¿Como que se quedo dormido? Siempre se queda dormido... ahhh, bueno, continuemos sin el.' },
   { type: 'song', track: 2 },
   {
     type: 'dialogue',

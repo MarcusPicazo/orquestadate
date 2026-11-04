@@ -18,17 +18,22 @@
   // ---------- utilidades de audio ----------
   function clampVolume(v) { return Math.max(0, Math.min(1, v)); }
 
+  // usa setTimeout (no requestAnimationFrame): si la pestaña pierde
+  // el foco, rAF se pausa y el guion se quedaria colgado a medio
+  // fundido; setTimeout sigue avanzando (aunque este limitado a
+  // ~1s en segundo plano, eventualmente termina).
   function fadeAudio(el, from, to, ms, cb) {
     el.volume = clampVolume(from);
     if (ms <= 0) { el.volume = clampVolume(to); if (cb) cb(); return; }
-    const start = performance.now();
-    function step(now) {
-      const t = Math.min(1, (now - start) / ms);
+    const start = Date.now();
+    const stepMs = 40;
+    function step() {
+      const t = Math.min(1, (Date.now() - start) / ms);
       el.volume = clampVolume(from + (to - from) * t);
-      if (t < 1) requestAnimationFrame(step);
+      if (t < 1) setTimeout(step, stepMs);
       else if (cb) cb();
     }
-    requestAnimationFrame(step);
+    step();
   }
 
   function playTuning() {
@@ -75,11 +80,33 @@
     };
   }
 
-  function showSmallBubble(text, ms, cb) {
+  const stageWrap = document.querySelector('.stage-wrap');
+
+  // posiciona el globo pequeno justo encima de un elemento del
+  // escenario (p.ej. un musico); si no se da elemento, se queda en
+  // su posicion por defecto (ver CSS)
+  function positionBubbleAbove(el) {
+    if (!el || !stageWrap) {
+      smallBubble.style.left = '';
+      smallBubble.style.top = '';
+      return;
+    }
+    const target = el.getBoundingClientRect();
+    const box = stageWrap.getBoundingClientRect();
+    const left = target.left + target.width / 2 - box.left;
+    const top = target.top - box.top - 10;
+    smallBubble.style.left = left + 'px';
+    smallBubble.style.top = Math.max(8, top) + 'px';
+  }
+
+  function showSmallBubble(text, ms, cb, targetEl) {
     smallBubble.textContent = text;
+    positionBubbleAbove(targetEl);
     smallBubble.classList.add('is-open');
     setTimeout(() => {
       smallBubble.classList.remove('is-open');
+      smallBubble.style.left = '';
+      smallBubble.style.top = '';
       if (cb) cb();
     }, ms);
   }
@@ -189,9 +216,17 @@
         break;
       }
 
-      case 'specialBubble':
-        showSmallBubble(step.text, 2600, next);
+      case 'specialBubble': {
+        let targetEl = null;
+        if (step.target === 'Mapachovsky') {
+          targetEl = orchestraEls[ORCHESTRA_NAMES.indexOf('Mapachovsky')];
+        } else if (step.target === 'random') {
+          const pool = singerEls.length ? singerEls : orchestraEls;
+          targetEl = pool[Math.floor(Math.random() * pool.length)];
+        }
+        showSmallBubble(step.text, 2600, next, targetEl);
         break;
+      }
 
       case 'angryJumpAll':
         angryJumpAll(next);
