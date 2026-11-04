@@ -222,7 +222,7 @@
 
   // ---------- cargar la libreria de simbolos (assets/symbols.svg) ----------
   function loadSymbols() {
-    return fetch('assets/symbols.svg?v=38')
+    return fetch('assets/symbols.svg?v=39')
       .then((r) => r.text())
       .then((text) => {
         const parser = new DOMParser();

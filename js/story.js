@@ -93,9 +93,11 @@
     }
     const target = el.getBoundingClientRect();
     const box = stageWrap.getBoundingClientRect();
+    const halfBubble = 128; // mitad de max-width (240px) + margen
     const left = target.left + target.width / 2 - box.left;
     const top = target.top - box.top - 10;
-    smallBubble.style.left = left + 'px';
+    const clampedLeft = Math.min(box.width - halfBubble, Math.max(halfBubble, left));
+    smallBubble.style.left = clampedLeft + 'px';
     smallBubble.style.top = Math.max(8, top) + 'px';
   }
 

@@ -160,14 +160,14 @@
     <ellipse cx="118" cy="206" rx="13" ry="7.5" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".35" stroke-width="3"/>
     <ellipse cx="100" cy="135" rx="55" ry="50" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".35" stroke-width="6"/>
     <ellipse cx="78" cy="105" rx="22" ry="26" fill="#fff" opacity=".14"/>
-    <path d="M 100,92 C 76,94 60,114 59,142 Q 58,160 70,168 Q 100,178 130,168 Q 142,160 141,142 C 140,114 124,94 100,92 Z" fill="#1c2330" stroke="#05060a" stroke-width="5"/>
-    <path d="M 100,92 L 88,112 L 100,126 L 112,112 Z" fill="#f3f1e9"/>
+    <path d="M 100,92 C 76,94 60,114 59,142 Q 58,160 70,168 Q 100,178 130,168 Q 142,160 141,142 C 140,114 124,94 100,92 Z" fill="#111219" stroke="#05060a" stroke-width="5"/>
+    <path d="M 100,92 L 88,112 L 100,126 L 112,112 Z" fill="#f7f4ea"/>
     <path d="M 100,92 L 90,113 L 98,126 Z" fill="#05060a"/>
     <path d="M 100,92 L 110,113 L 102,126 Z" fill="#05060a"/>
     <g class="uniform-bowtie">
-      <path d="M 100,104 L 84,96 L 84,113 Z" fill="#7a2a35" stroke="#4a1620" stroke-width="2"/>
-      <path d="M 100,104 L 116,96 L 116,113 Z" fill="#7a2a35" stroke="#4a1620" stroke-width="2"/>
-      <circle cx="100" cy="104" r="5.5" fill="#9c3a46" stroke="#4a1620" stroke-width="1.6"/>
+      <path d="M 100,104 L 84,96 L 84,113 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="2"/>
+      <path d="M 100,104 L 116,96 L 116,113 Z" fill="#cda45e" stroke="#8a6a32" stroke-width="2"/>
+      <circle cx="100" cy="104" r="5.5" fill="#e8c788" stroke="#8a6a32" stroke-width="1.6"/>
     </g>
     <g>
       <path d="M 40,50 L 20,10 L 75,30 Z" fill="currentColor" stroke="#2b2b2b" stroke-opacity=".35" stroke-width="6"/>
@@ -511,7 +511,7 @@
       <g>
         <ellipse cx="100" cy="30" rx="44" ry="8" fill="#0c0d12" stroke="#05060a" stroke-width="3"/>
         <path d="M 70,30 L 73,-15 Q 100,-24 127,-15 L 130,30 Z" fill="#111219" stroke="#05060a" stroke-width="3"/>
-        <rect x="71" y="11" width="58" height="11" fill="#cda45e"/>
+        <rect x="71" y="11" width="58" height="11" fill="#05060a"/>
       </g>
     </g>
 
@@ -573,7 +573,7 @@
     <g>
       <ellipse cx="100" cy="30" rx="44" ry="8" fill="#0c0d12" stroke="#05060a" stroke-width="3"/>
       <path d="M 70,30 L 73,-15 Q 100,-24 127,-15 L 130,30 Z" fill="#111219" stroke="#05060a" stroke-width="3"/>
-      <rect x="71" y="11" width="58" height="11" fill="#cda45e"/>
+      <rect x="71" y="11" width="58" height="11" fill="#05060a"/>
     </g>
   </g>
 </g>
